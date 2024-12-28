@@ -64,9 +64,20 @@ import productcompare from "../images/prodcompare.svg";
 import addcart from "../images/add-cart.svg";
 import view from "../images/view.svg";
 
+interface Product {
+  id: number;
+  image1: string;
+  image2?: string; 
+  brand: string;
+  title: string;
+  total_ratings: number;
+  description: string;
+  price: number;
+}
+
 const props = defineProps({
   data: {
-    type: Array,
+    type: Array as () => Product[],
     required: true,
   },
   grid: {

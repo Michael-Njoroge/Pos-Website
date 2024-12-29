@@ -2,7 +2,7 @@
   <div>
     <!-- Newsletter Section -->
     <footer class="py-4">
-      <div class="container-xxl">
+      <div class="container-xxl" style="max-width: 75%">
         <div class="row align-items-center">
           <div class="col-5">
             <div class="footer-top-data d-flex gap-30 align-items-center">
@@ -30,7 +30,7 @@
 
     <!-- Main Footer Content -->
     <footer class="py-4">
-      <div class="container-xxl">
+      <div class="container-xxl" style="max-width: 80%">
         <div class="row">
           <!-- Contact Us -->
           <div class="col-3">
@@ -63,13 +63,13 @@
                 <el-icon class="fs-4"><Share /></el-icon>
               </a>
               <a class="text-white" href="#">
-                <el-icon class="fs-4"><Location/></el-icon>
+                <el-icon class="fs-4"><Location /></el-icon>
               </a>
             </div>
           </div>
 
           <!-- Information Links -->
-          <div class="col-4">
+          <div class="col-2">
             <h4 class="text-white mb-4">Information</h4>
             <div class="footer-links d-flex flex-column">
               <router-link to="privacy-policy" class="text-white py-2 mb-1">
@@ -94,7 +94,7 @@
           </div>
 
           <!-- Account Links -->
-          <div class="col-3">
+          <div class="col-2">
             <h4 class="text-white mb-4">Account</h4>
             <div class="footer-links d-flex flex-column">
               <router-link to="search" class="text-white py-2 mb-1"
@@ -136,18 +136,86 @@
               >
             </div>
           </div>
+
+          <!-- App Links -->
+          <div class="col-3">
+            <h4 class="text-white mb-4">Our App</h4>
+            <div class="footer-links d-flex flex-column">
+              <p class="mb-0 text-white">
+                Download our App and get extra 15% Discount on your first
+                Order.!
+              </p>
+              <div class="d-flex gap-3 mt-3">
+                <a
+                  href="#"
+                  class="btn btn-light d-flex align-items-center gap-2"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                    alt="Google Play"
+                    height="30"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="btn btn-light d-flex align-items-center gap-2"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                    alt="Apple Store"
+                    height="30"
+                  />
+                  App Store
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
 
     <!-- Footer Bottom -->
     <footer class="py-4">
-      <div class="container-xxl">
+      <div class="container-xxl" style="max-width: 90%">
         <div class="row">
           <div class="col-12">
-            <p class="text-center mb-0 text-white">
-              &copy; {{ new Date().getFullYear() }} Powered by Tech Mart
-            </p>
+            <div class="d-flex justify-content-between">
+              <p class="text-center mb-0 text-white">
+                &copy; {{ new Date().getFullYear() }} Powered by Tech Mart
+              </p>
+              <div class="d-flex gap-3">
+                <a
+                  href="#"
+                  class="btn btn-light d-flex align-items-center gap-2"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_2021.svg"
+                    alt="Visa"
+                    height="30"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="btn btn-light d-flex align-items-center gap-2"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                    alt="MasterCard"
+                    height="30"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="btn btn-light d-flex align-items-center gap-2"
+                >
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+                    alt="PayPal"
+                    height="30"
+                  />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

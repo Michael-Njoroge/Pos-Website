@@ -27,10 +27,10 @@ import f30 from "../images/featured/3.0.jpg"
 import f31 from "../images/featured/3.1.jpg"
 import f40 from "../images/featured/4.0.jpg"
 import f41 from "../images/featured/4.1.jpg"
-// import f50 from "../images/featured/5.0.jpg"
-// import f51 from "../images/featured/5.1.jpg"
-// import f60 from "../images/featured/6.0.jpg"
-// import f61 from "../images/featured/6.1.jpg"
+import f50 from "../images/featured/5.0.jpg"
+import f51 from "../images/featured/5.1.jpg"
+import f60 from "../images/featured/6.0.jpg"
+import f61 from "../images/featured/6.1.jpg"
 
 export const carouselItems = [
   {
@@ -152,7 +152,7 @@ export const categories = [
 export const featuredProducts = [
     {
       id: 1,
-      title: "Wireless Headphone",
+      title: "Olympus pen E-PL9 kit with 14-42, EZ lens, camera",
       brand: "Tech Brand",
       description: "High-quality wireless headphones for an immersive sound experience.",
       price: 99.99,
@@ -162,7 +162,7 @@ export const featuredProducts = [
     },
     {
       id: 2,
-      title: "Smart Watch",
+      title: "Sony EXTRA BASS Portable Splash-proof Wireless Speaker",
       brand: "Gadget Co.",
       description: "Advanced smartwatch with fitness tracking and notifications.",
       price: 149.99,
@@ -172,7 +172,7 @@ export const featuredProducts = [
     },
     {
         id: 3,
-        title: "Wireless Headphone",
+        title: "Beoplay A1 Portable Bluetooth Speaker with Microphone",
         brand: "Tech Brand",
         description: "High-quality wireless headphones for an immersive sound experience.",
         price: 99.99,
@@ -182,7 +182,7 @@ export const featuredProducts = [
     },
     {
         id: 4,
-        title: "Smart Watch",
+        title: "Milanese Loop Watch Band for 42mm/44mm Apple Watch",
         brand: "Gadget Co.",
         description: "Advanced smartwatch with fitness tracking and notifications.",
         price: 149.99,
@@ -190,25 +190,25 @@ export const featuredProducts = [
         image1: f40,
         image2: f41
     },
-    // {
-    //     id: 5,
-    //     title: "Wireless Headphone",
-    //     brand: "Tech Brand",
-    //     description: "High-quality wireless headphones for an immersive sound experience.",
-    //     price: 99.99,
-    //     total_ratings: 4.5,
-    //     image1: f50,
-    //     image2: f51
-    // },
-    // {
-    //     id: 6,
-    //     title: "Smart Watch",
-    //     brand: "Gadget Co.",
-    //     description: "Advanced smartwatch with fitness tracking and notifications.",
-    //     price: 149.99,
-    //     total_ratings: 4.8,
-    //     image1: f60,
-    //     image2: f61
-    // },
+    {
+        id: 5,
+        title: "Apple AirPods with Wired Charging Case",
+        brand: "Tech Brand",
+        description: "High-quality wireless headphones for an immersive sound experience.",
+        price: 99.99,
+        total_ratings: 4.5,
+        image1: f50,
+        image2: f51
+    },
+    {
+        id: 6,
+        title: "Bioplay A1 Portable Bluetooth Speaker with Microphone",
+        brand: "Gadget Co.",
+        description: "Advanced smartwatch with fitness tracking and notifications.",
+        price: 149.99,
+        total_ratings: 4.8,
+        image1: f60,
+        image2: f61
+    },
   ];
   

@@ -102,7 +102,7 @@ const itemProjectionFunction = (item: any) => item.name;
 
 <template>
   <header class="header-top-strip py-3">
-    <div class="container-xxl">
+    <div class="container-xxl" style="max-width: 90%;">
       <div class="row d-flex justify-content-between">
         <div class="col-6">
           <p class="text-white mb-0">Free Shipping Over $100 & Free Returns</p>
@@ -134,7 +134,7 @@ const itemProjectionFunction = (item: any) => item.name;
   </header>
   <!-- Header Upper -->
   <header class="header-upper py-3">
-    <div class="container-xxl">
+    <div class="container-xxl" style="max-width: 90%;">
       <div class="row align-items-center">
         <div class="col-2">
           <h2>
@@ -217,7 +217,7 @@ const itemProjectionFunction = (item: any) => item.name;
   </header>
   <!-- Header Bottom -->
   <header class="header-bottom py-3">
-    <div class="container-xxl">
+    <div class="container-xxl" style="max-width: 90%;">
       <div class="row">
         <div class="col-12">
           <div class="menu-bottom d-flex align-items-center">

@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import wish from "../images/wish.svg";
 import addedWish from "../images/wish-black.svg";
 import productcompare from "../images/prodcompare.svg";
@@ -76,7 +76,7 @@ interface Product {
   price: number;
 }
 
-const props = defineProps({
+defineProps({
   data: {
     type: Array as () => Product[],
     required: true,
@@ -86,10 +86,6 @@ const props = defineProps({
       required: true
   }
 });
-
-onMounted(()=>{
-    console.log("data", props.data);
-})
 
 const wishlist = ref<number[]>([]);
 

@@ -5,32 +5,32 @@ import catbanner2 from "../images/catbanner-02.jpg";
 import catbanner3 from "../images/catbanner-03.jpg";
 import catbanner4 from "../images/catbanner-04.jpg";
 
-import service from "../images/service.png"
-import service2 from "../images/service-02.png"
-import service3 from "../images/service-03.png"
-import service4 from "../images/service-04.png"
-import service5 from "../images/service-05.png"
+import service from "../images/service.png";
+import service2 from "../images/service-02.png";
+import service3 from "../images/service-03.png";
+import service4 from "../images/service-04.png";
+import service5 from "../images/service-05.png";
 
-import camera from "../images/camera.jpg"
-import tv from "../images/tv.jpg"
-import watch4 from "../images/watch4.jpg"
-import gaming from "../images/gaming.jpg"
-import headphone from "../images/headphone.jpg"
-import speaker1 from "../images/speaker1.jpg"
-import tab10 from "../images/tab10.jpg"
+import camera from "../images/camera.jpg";
+import tv from "../images/tv.jpg";
+import watch4 from "../images/watch4.jpg";
+import gaming from "../images/gaming.jpg";
+import headphone from "../images/headphone.jpg";
+import speaker1 from "../images/speaker1.jpg";
+import tab10 from "../images/tab10.jpg";
 
-import f10 from "../images/featured/1.0.jpg"
-import f11 from "../images/featured/1.1.jpg"
-import f20 from "../images/featured/2.0.jpg"
-import f21 from "../images/featured/2.1.jpg"
-import f30 from "../images/featured/3.0.jpg"
-import f31 from "../images/featured/3.1.jpg"
-import f40 from "../images/featured/4.0.jpg"
-import f41 from "../images/featured/4.1.jpg"
-import f50 from "../images/featured/5.0.jpg"
-import f51 from "../images/featured/5.1.jpg"
-import f60 from "../images/featured/6.0.jpg"
-import f61 from "../images/featured/6.1.jpg"
+import f10 from "../images/featured/1.0.jpg";
+import f11 from "../images/featured/1.1.jpg";
+import f20 from "../images/featured/2.0.jpg";
+import f21 from "../images/featured/2.1.jpg";
+import f30 from "../images/featured/3.0.jpg";
+import f31 from "../images/featured/3.1.jpg";
+import f40 from "../images/featured/4.0.jpg";
+import f41 from "../images/featured/4.1.jpg";
+import f50 from "../images/featured/5.0.jpg";
+import f51 from "../images/featured/5.1.jpg";
+import f60 from "../images/featured/6.0.jpg";
+import f61 from "../images/featured/6.1.jpg";
 
 export const carouselItems = [
   {
@@ -107,108 +107,182 @@ export const services = [
 ];
 
 export const categories = [
-	{ 
-		title: 'Computer & Laptop', 
-		count: 8, 
-		img: camera 
-	},
-	{ 
-		title: 'Mobile & Tablets', 
-		count: 5, 
-		img: tv 
-	},
-	{ 
-		title: 'Cameras & Videos', 
-		count: 10, 
-		img: camera 
-	},
-	{ 
-		title: 'Smart Watches', 
-		count: 13, 
-		img: watch4 
-	},
-	{ 
-		title: 'Music & Gaming', 
-		count: 4, 
-		img: gaming
-	},
-	{ 
-		title: 'Headphones', 
-		count: 6, 
-		img: headphone 
-	},
-	{ 
-		title: 'Portable Speakers', 
-		count: 8, 
-		img: speaker1
-	},
-	{ 
-		title: 'Home Appliances', 
-		count: 6, 
-		img: tab10 
-	},
+  {
+    title: "Computer & Laptop",
+    count: 8,
+    img: camera,
+  },
+  {
+    title: "Mobile & Tablets",
+    count: 5,
+    img: tv,
+  },
+  {
+    title: "Cameras & Videos",
+    count: 10,
+    img: camera,
+  },
+  {
+    title: "Smart Watches",
+    count: 13,
+    img: watch4,
+  },
+  {
+    title: "Music & Gaming",
+    count: 4,
+    img: gaming,
+  },
+  {
+    title: "Headphones",
+    count: 6,
+    img: headphone,
+  },
+  {
+    title: "Portable Speakers",
+    count: 8,
+    img: speaker1,
+  },
+  {
+    title: "Home Appliances",
+    count: 6,
+    img: tab10,
+  },
 ];
 
 export const featuredProducts = [
-    {
-      id: 1,
-      title: "Olympus pen E-PL9 kit with 14-42, EZ lens, camera",
-      brand: "Tech Brand",
-      description: "High-quality wireless headphones for an immersive sound experience.",
-      price: 99.99,
-      total_ratings: 4.5,
-      image1: f10,
-      image2: f11
-    },
-    {
-      id: 2,
-      title: "Sony EXTRA BASS Portable Splash-proof Wireless Speaker",
-      brand: "Gadget Co.",
-      description: "Advanced smartwatch with fitness tracking and notifications.",
-      price: 149.99,
-      total_ratings: 4.8,
-      image1: f20,
-      image2: f21
-    },
-    {
-        id: 3,
-        title: "Beoplay A1 Portable Bluetooth Speaker with Microphone",
-        brand: "Tech Brand",
-        description: "High-quality wireless headphones for an immersive sound experience.",
-        price: 99.99,
-        total_ratings: 4.5,
-        image1: f30,
-        image2: f31
-    },
-    {
-        id: 4,
-        title: "Milanese Loop Watch Band for 42mm/44mm Apple Watch",
-        brand: "Gadget Co.",
-        description: "Advanced smartwatch with fitness tracking and notifications.",
-        price: 149.99,
-        total_ratings: 4.8,
-        image1: f40,
-        image2: f41
-    },
-    {
-        id: 5,
-        title: "Apple AirPods with Wired Charging Case",
-        brand: "Tech Brand",
-        description: "High-quality wireless headphones for an immersive sound experience.",
-        price: 99.99,
-        total_ratings: 4.5,
-        image1: f50,
-        image2: f51
-    },
-    {
-        id: 6,
-        title: "Bioplay A1 Portable Bluetooth Speaker with Microphone",
-        brand: "Gadget Co.",
-        description: "Advanced smartwatch with fitness tracking and notifications.",
-        price: 149.99,
-        total_ratings: 4.8,
-        image1: f60,
-        image2: f61
-    },
-  ];
-  
+  {
+    id: 1,
+    title: "Olympus pen E-PL9 kit with 14-42, EZ lens, camera",
+    brand: "Tech Brand",
+    description:
+      "High-quality wireless headphones for an immersive sound experience.",
+    price: 99.99,
+    total_ratings: 4.5,
+    image1: f10,
+    image2: f11,
+  },
+  {
+    id: 2,
+    title: "Sony EXTRA BASS Portable Splash-proof Wireless Speaker",
+    brand: "Gadget Co.",
+    description: "Advanced smartwatch with fitness tracking and notifications.",
+    price: 149.99,
+    total_ratings: 4.8,
+    image1: f20,
+    image2: f21,
+  },
+  {
+    id: 3,
+    title: "Beoplay A1 Portable Bluetooth Speaker with Microphone",
+    brand: "Tech Brand",
+    description:
+      "High-quality wireless headphones for an immersive sound experience.",
+    price: 99.99,
+    total_ratings: 4.5,
+    image1: f30,
+    image2: f31,
+  },
+  {
+    id: 4,
+    title: "Milanese Loop Watch Band for 42mm/44mm Apple Watch",
+    brand: "Gadget Co.",
+    description: "Advanced smartwatch with fitness tracking and notifications.",
+    price: 149.99,
+    total_ratings: 4.8,
+    image1: f40,
+    image2: f41,
+  },
+  {
+    id: 5,
+    title: "Apple AirPods with Wired Charging Case",
+    brand: "Tech Brand",
+    description:
+      "High-quality wireless headphones for an immersive sound experience.",
+    price: 99.99,
+    total_ratings: 4.5,
+    image1: f50,
+    image2: f51,
+  },
+  {
+    id: 6,
+    title: "Bioplay A1 Portable Bluetooth Speaker with Microphone",
+    brand: "Gadget Co.",
+    description: "Advanced smartwatch with fitness tracking and notifications.",
+    price: 149.99,
+    total_ratings: 4.8,
+    image1: f60,
+    image2: f61,
+  },
+];
+
+export const specialProducts = [
+  {
+    id: 1,
+    brand: "Tech Brand",
+    title: "Olympus pen E-PL9 kit with 14-42, EZ lens, camera",
+    total_rating: 4.5,
+    price: 99.99,
+    quantity: 50,
+    sold: 20,
+    image: f10, // assuming f10 is a valid image variable
+    tags: "special",
+    discount: "-10%",
+  },
+  {
+    id: 2,
+    brand: "Gadget Co.",
+    title: "Sony EXTRA BASS Portable Splash-proof Wireless Speaker",
+    total_rating: 4.8,
+    price: 149.99,
+    quantity: 100,
+    sold: 45,
+    image: f20, // assuming f20 is a valid image variable
+    tags: "special",
+    discount: "-15%",
+  },
+  {
+    id: 3,
+    brand: "Tech Brand",
+    title: "Beoplay A1 Portable Bluetooth Speaker with Microphone",
+    total_rating: 4.5,
+    price: 99.99,
+    quantity: 30,
+    sold: 10,
+    image: f30, // assuming f30 is a valid image variable
+    tags: "special",
+    discount: "-5%",
+  },
+  // {
+  //   id: 4,
+  //   brand: "Gadget Co.",
+  //   title: "Milanese Loop Watch Band for 42mm/44mm Apple Watch",
+  //   total_rating: 4.8,
+  //   price: 149.99,
+  //   quantity: 60,
+  //   sold: 25,
+  //   image: f40, // assuming f40 is a valid image variable
+  //   tags: "special",
+  // },
+  // {
+  //   id: 5,
+  //   brand: "Tech Brand",
+  //   title: "Apple AirPods with Wired Charging Case",
+  //   total_rating: 4.5,
+  //   price: 99.99,
+  //   quantity: 40,
+  //   sold: 15,
+  //   image: f50, // assuming f50 is a valid image variable
+  //   tags: "special",
+  // },
+  // {
+  //   id: 6,
+  //   brand: "Gadget Co.",
+  //   title: "Bioplay A1 Portable Bluetooth Speaker with Microphone",
+  //   total_rating: 4.8,
+  //   price: 149.99,
+  //   quantity: 70,
+  //   sold: 30,
+  //   image: f60, // assuming f60 is a valid image variable
+  //   tags: "special",
+  // },
+];

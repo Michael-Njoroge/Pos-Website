@@ -1,13 +1,13 @@
 <template>
   <section class="home-wrapper-1 py-5">
-    <div class="container-xxl">
+    <div class="container-xxl" style="max-width: 90%;">
       <div class="row">
         <div class="col-6">
           <el-carousel
             :interval="5000"
             arrow="never"
             :pause-on-hover="true"
-            height="430px"
+            height="600px"
           >
             <el-carousel-item
               v-for="(item, index) in carouselItems"
@@ -62,7 +62,7 @@
   </section>
 
   <section class="home-wrapper-2 py-5">
-    <div class="container-xxl">
+    <div class="container-xxl" style="max-width: 90%;">
       <div class="row">
         <div class="col-12">
           <div
@@ -86,7 +86,7 @@
   </section>
 
   <section class="home-wrapper-2 py-5">
-    <div class="container-xxl">
+    <div class="container-xxl" style="max-width: 90%;">
       <div class="row">
         <div class="col-12">
           <div
@@ -111,18 +111,18 @@
   </section>
 
   <section class="featured-wrapper home-wrapper-2 py-5">
-    <div class="container-xxl">
+    <div class="container-xxl" style="max-width: 90%;">
       <div class="row">
         <div class="col-12">
           <h5 class="section-heading">Featured Collection</h5>
         </div>
-        <ProductCard :data="featuredProducts" :grid="12"/>
+        <ProductCard :data="featuredProducts" :grid="6"/>
       </div>
     </div>
   </section>
 
   <section class="famous-wrapper home-wrapper-2 py-5">
-    <div class="container-xxl">
+    <div class="container-xxl" style="max-width: 90%;">
         <div class="row" >
             <div class="col-12">
                 <h5 class="section-heading">Famous Collection</h5>

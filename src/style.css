@@ -73,6 +73,10 @@ a {
   margin-bottom: 30px;
 }
 
+
+.text-decoration-line-through {
+  text-decoration: line-through;
+} 
 /* Header Part */
 
 .header-top-strip {
@@ -200,8 +204,8 @@ footer .input-group-text {
 
 /*home wrapper 1*/
 .main-banner-content {
-  top: 15%;
-  left: 5%;
+  top: 25%;
+  left: 10%;
 }
 
 .main-banner-content h4 {
@@ -215,11 +219,12 @@ footer .input-group-text {
 }
 
 .main-banner-content h5 {
-  font-size: 42px;
-  line-height: 54px;
+  font-size: 52px;
+  line-height: 64px;
   letter-spacing: -2px;
   font-weight: 500;
   text-transform: none;
+  margin: 16px 0 19px;
 }
 
 .main-banner-content p {
@@ -408,7 +413,7 @@ footer .input-group-text {
 }
 
 .product-card .product-image {
-  height: 300px;
+  height: 250px;
 }
 
 .product-card .product-image img {

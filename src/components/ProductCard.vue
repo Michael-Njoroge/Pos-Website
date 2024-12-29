@@ -1,5 +1,5 @@
 <template>
-  <div v-for="(item, index) in data" :key="index" class="col-3" style="cursor: pointer">
+  <div v-for="(item, index) in data" :key="index" class="col-2" style="cursor: pointer">
     <div class="product-card position-relative">
       <div class="wishlist-icon position-absolute">
         <button
@@ -35,6 +35,7 @@
         </div>
         <p    :class="['description', grid === 12 ? 'd-block' : 'd-none']" v-html="item.description"></p>
         <p class="price">$ {{ item.price }}</p>
+        <!-- <span class="ms-2 text-muted text-decoration-line-through">${{ item.price }}</span> -->
       </div>
       <div class="action-bar position-absolute">
         <div class="d-flex flex-column gap-15">
@@ -105,18 +106,5 @@ const toggleWishlist = (productId: number) => {
 </script>
 
 <style scoped>
-.product-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 10px 0;
-}
-.product-card .product-image img {
-  max-width: 100%;
-  border-radius: 8px;
-}
-.action-bar {
-  right: 15px;
-  bottom: 15px;
-}
+
 </style>

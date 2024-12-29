@@ -475,6 +475,56 @@ footer .input-group-text {
   padding: 20px 10px;
   border-radius: 10px;
   background-color: white;
+  overflow: hidden; 
+  position: relative;
+  width: 100%;
+}
+
+.special-product-card:hover .action-bar {
+  right: 50px; /* Action bar appears at the bottom on hover */
+  opacity: 1; /* Makes it visible */
+}
+
+
+.special-product-card .action-bar {
+  position: absolute;
+  bottom: -50px; /* Initially hidden */
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+  transition: all 0.3s ease; /* Smooth hover effect */
+  opacity: 0; /* Initially invisible */
+}
+
+.special-product-card .product-details h6 {
+  color: var(--color-bf4800);
+  font-size: 13px;
+}
+
+.special-product-card .product-details h5 {
+  font-size: 15px;
+  color: var(--color-1c1c1b);
+}
+
+.special-product-card p.description {
+  color: var(--color-777777);
+  font-size: 13px;
+}
+
+.special-product-card .product-details p.price {
+  font-size: 16px;
+  color: var(--color-1c1c1b);
+}
+
+.arrow {
+  display: none; /* Initially hidden */
+  cursor: pointer;
+  z-index: 1; /* Ensure it's above other elements */
+}
+
+.special-product-card:hover .arrow {
+  display: block; /* Show arrows on hover */
 }
 
 /*Special Product End*/
@@ -954,9 +1004,6 @@ footer .input-group-text {
   display: none;
 }
 /*Shipping page End*/
-
-
-
 
 /*/////////////////////////////////// CSS for small screens ////////////////////////////////////////*/
  

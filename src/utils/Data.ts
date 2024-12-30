@@ -32,6 +32,18 @@ import f51 from "../images/featured/5.1.jpg";
 import f60 from "../images/featured/6.0.jpg";
 import f61 from "../images/featured/6.1.jpg";
 
+import s001 from "../images/special/0003.jpg";
+import s010 from "../images/special/0031.jpg";
+import s011 from "../images/special/0032.jpg";
+import s100 from "../images/special/0330.jpg";
+import s101 from "../images/special/0331.jpg";
+import s002 from "../images/special/2222.jpg";
+import s020 from "../images/special/002.jpg";
+import s021 from "../images/special/222.jpg";
+import s200 from "../images/special/221.jpg";
+import s003 from "../images/special/0004.jpg";
+import s030 from "../images/special/0040.jpg";
+
 export const carouselItems = [
   {
     image: banner1,
@@ -213,76 +225,112 @@ export const featuredProducts = [
     image1: f60,
     image2: f61,
   },
+  {
+    id: 7,
+    title: "Sony EXTRA BASS Portable Splash-proof Wireless Speaker",
+    brand: "Gadget Co.",
+    description: "Advanced smartwatch with fitness tracking and notifications.",
+    price: 149.99,
+    total_ratings: 4.8,
+    image1: f20,
+    image2: f21,
+  },
+  {
+    id: 8,
+    title: "Beoplay A1 Portable Bluetooth Speaker with Microphone",
+    brand: "Tech Brand",
+    description:
+      "High-quality wireless headphones for an immersive sound experience.",
+    price: 99.99,
+    total_ratings: 4.5,
+    image1: f30,
+    image2: f31,
+  },
 ];
 
 export const specialProducts = [
   {
     id: 1,
     brand: "Tech Brand",
-    title: "Olympus pen E-PL9 kit with 14-42, EZ lens, camera",
+    title: " Samsung Galaxy Note10+ Mobile Phone; Sim...",
     total_rating: 4.5,
     price: 99.99,
     quantity: 50,
     sold: 20,
-    image: f10, // assuming f10 is a valid image variable
+    image: s001, // assuming f10 is a valid image variable
     tags: "special",
     discount: "-10%",
+    images: [
+      {
+        file_url1: s010,
+      },
+      {
+        file_url1: s011,
+      },
+      {
+        file_url1: s011,
+      },
+      {
+        file_url2: s100,
+      },
+      {
+        file_url2: s100,
+      },
+      {
+        file_url2: s101,
+      },
+    ],
   },
   {
     id: 2,
     brand: "Gadget Co.",
-    title: "Sony EXTRA BASS Portable Splash-proof Wireless Speaker",
+    title: "Hero Session Action Camera with 8MP...",
     total_rating: 4.8,
     price: 149.99,
     quantity: 100,
     sold: 45,
-    image: f20, // assuming f20 is a valid image variable
+    image: s002,
     tags: "special",
     discount: "-15%",
+    images: [
+      {
+        file_url1: s020,
+      },
+      {
+        file_url1: s021,
+      },
+      {
+        file_url1: s021,
+      },
+      {
+        file_url2: s200,
+      },
+    ],
   },
   {
     id: 3,
     brand: "Tech Brand",
-    title: "Beoplay A1 Portable Bluetooth Speaker with Microphone",
+    title: "Beoplay A1 Portable Bluetooth Speaker with...",
     total_rating: 4.5,
     price: 99.99,
     quantity: 30,
     sold: 10,
-    image: f30, // assuming f30 is a valid image variable
+    image: s030,
     tags: "special",
     discount: "-5%",
+    images: [
+      {
+        file_url1: f30,
+      },
+      {
+        file_url1: s003,
+      },
+      {
+        file_url2: f11,
+      },
+      {
+        file_url1: f31,
+      },
+    ],
   },
-  // {
-  //   id: 4,
-  //   brand: "Gadget Co.",
-  //   title: "Milanese Loop Watch Band for 42mm/44mm Apple Watch",
-  //   total_rating: 4.8,
-  //   price: 149.99,
-  //   quantity: 60,
-  //   sold: 25,
-  //   image: f40, // assuming f40 is a valid image variable
-  //   tags: "special",
-  // },
-  // {
-  //   id: 5,
-  //   brand: "Tech Brand",
-  //   title: "Apple AirPods with Wired Charging Case",
-  //   total_rating: 4.5,
-  //   price: 99.99,
-  //   quantity: 40,
-  //   sold: 15,
-  //   image: f50, // assuming f50 is a valid image variable
-  //   tags: "special",
-  // },
-  // {
-  //   id: 6,
-  //   brand: "Gadget Co.",
-  //   title: "Bioplay A1 Portable Bluetooth Speaker with Microphone",
-  //   total_rating: 4.8,
-  //   price: 149.99,
-  //   quantity: 70,
-  //   sold: 30,
-  //   image: f60, // assuming f60 is a valid image variable
-  //   tags: "special",
-  // },
 ];

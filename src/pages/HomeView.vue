@@ -115,12 +115,25 @@
       <div class="row">
         <div class="col-12 d-flex justify-content-between">
           <h5 class="section-heading">Featured Collection</h5>
-          <div class="d-flex gap-2 mt-3" style="color: #999999;cursor:pointer">
-            <el-icon class="fs-6"><ArrowLeftBold /></el-icon>
-            <el-icon class="fs-6"><ArrowRightBold /></el-icon>
+          <div
+            class="d-flex gap-2 mt-3"
+            style="color: #999999; cursor: pointer"
+          >
+            <el-icon
+              @click="prev"
+              :style="{ cursor: canGoPrev ? 'pointer' : 'not-allowed' }"
+              class="fs-6"
+              ><ArrowLeftBold
+            /></el-icon>
+            <el-icon
+              @click="next"
+              :style="{ cursor: canGoNext ? 'pointer' : 'not-allowed' }"
+              class="fs-6"
+              ><ArrowRightBold
+            /></el-icon>
           </div>
         </div>
-        <ProductCard :data="featuredProducts" :grid="6" />
+        <ProductCard :data="displayedProducts" :grid="6" />
       </div>
     </div>
   </section>
@@ -199,7 +212,7 @@
         <div class="col-12">
           <h5 class="section-heading">Special Offer</h5>
         </div>
-        <SpecialProducts :data="specialProducts"/>
+        <SpecialProducts :data="specialProducts" />
       </div>
     </div>
   </section>
@@ -213,11 +226,35 @@ import {
   services,
   categories,
   featuredProducts,
-  specialProducts
+  specialProducts,
 } from "../utils/Data";
 import ProductCard from "../components/ProductCard.vue";
 import { ArrowLeftBold, ArrowRightBold } from "@element-plus/icons-vue";
 import SpecialProducts from "../components/SpecialProducts.vue";
+import { computed, ref } from "vue";
 
 useHead({ title: "Tech Mart | Home" });
+
+
+const itemsPerPage = 6;
+const currentIndex = ref(0);
+
+const displayedProducts = computed(() => {
+  return featuredProducts.slice(currentIndex.value, currentIndex.value + itemsPerPage);
+});
+
+const canGoPrev = computed(() => currentIndex.value > 0);
+const canGoNext = computed(() => currentIndex.value + itemsPerPage < featuredProducts.length);
+
+const prev = () => {
+  if (canGoPrev.value) {
+    currentIndex.value -= 1;
+  }
+};
+
+const next = () => {
+  if (canGoNext.value) {
+    currentIndex.value += 1;
+  }
+};
 </script>

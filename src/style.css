@@ -461,7 +461,7 @@ footer .input-group-text {
   color: var(--color-1c1c1b);
 }
 
-.action-bar {
+.product-card .action-bar {
   top: 10%;
   right: -23px;
   transition: 0.3s;
@@ -488,13 +488,14 @@ footer .input-group-text {
 
 .special-product-card .action-bar {
   position: absolute;
-  bottom: -50px; /* Initially hidden */
   right: 0;
   left: 0;
+  top: 10%;
   margin: auto;
   text-align: center;
   transition: all 0.3s ease; /* Smooth hover effect */
   opacity: 0; /* Initially invisible */
+  z-index: 1000;
 }
 
 .special-product-card .product-details h6 {

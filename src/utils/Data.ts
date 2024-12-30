@@ -1,5 +1,6 @@
 import banner1 from "../images/main-banner-1.jpg";
 import banner2 from "../images/main-banner.jpg";
+import single from "../images/single.jpg";
 import catbanner1 from "../images/catbanner-01.jpg";
 import catbanner2 from "../images/catbanner-02.jpg";
 import catbanner3 from "../images/catbanner-03.jpg";
@@ -334,3 +335,13 @@ export const specialProducts = [
     ],
   },
 ];
+
+export const singleProduct = {
+  id: "1",
+  title: "Honor T1 7.0 1 GB RAM 8 GB ROM 7 inch with Wi-Fi+3G Tablet",
+  price: "$100.00",
+  quantity: "20",
+  color: [{ C1: "#03330" }, { C2: "#BB7N0" }, { C1: "#PL3IO" }],
+  size: [{ S: "S" },{ L: "L" },{ M: "M" }],
+  image: single,
+};

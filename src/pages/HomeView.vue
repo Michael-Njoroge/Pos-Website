@@ -210,7 +210,7 @@
     <div class="container-xxl" style="max-width: 90%">
       <div class="row">
         <div class="col-12">
-          <h5 class="section-heading">Special Offer</h5>
+          <h5 class="section-heading">Special Product</h5>
         </div>
         <SpecialProducts :data="specialProducts" />
       </div>

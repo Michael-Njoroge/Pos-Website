@@ -1,5 +1,10 @@
 <template>
-  <div v-for="(item, index) in data" :key="index" class="col-2" style="cursor: pointer">
+  <div
+    v-for="(item, index) in data"
+    :key="index"
+    class="col-2"
+    style="cursor: pointer"
+  >
     <div class="product-card position-relative">
       <div class="wishlist-icon position-absolute">
         <button
@@ -15,11 +20,7 @@
         </button>
       </div>
       <div class="product-image">
-        <img
-          :src="item.image1"
-          alt="product"
-          class="img-fluid mx-auto"
-        />
+        <img :src="item.image1" alt="product" class="img-fluid mx-auto" />
         <img
           v-if="item.image2"
           :src="item.image2"
@@ -33,7 +34,10 @@
         <div class="rating">
           <el-rate v-model="item.total_ratings" :max="5" disabled />
         </div>
-        <p    :class="['description', grid === 12 ? 'd-block' : 'd-none']" v-html="item.description"></p>
+        <p
+          :class="['description', grid === 12 ? 'd-block' : 'd-none']"
+          v-html="item.description"
+        ></p>
         <p class="price">$ {{ item.price }}</p>
         <!-- <span class="ms-2 text-muted text-decoration-line-through">${{ item.price }}</span> -->
       </div>
@@ -42,12 +46,9 @@
           <button class="border-0 bg-transparent">
             <img :src="productcompare" alt="compare" />
           </button>
-          <router-link
-            :to="`/product/${item.id}`"
-            class="border-0 bg-transparent"
-          >
+          <button @click="showModal" class="border-0 bg-transparent">
             <img :src="view" alt="view" />
-          </router-link>
+          </button>
           <button class="border-0 bg-transparent">
             <img :src="addcart" alt="add to cart" />
           </button>
@@ -55,6 +56,8 @@
       </div>
     </div>
   </div>
+
+  <ProductModal v-model:visible="isModalVisible" :product="singleProduct" />
 </template>
 
 <script setup lang="ts">
@@ -64,11 +67,13 @@ import addedWish from "../images/wish-black.svg";
 import productcompare from "../images/prodcompare.svg";
 import addcart from "../images/add-cart.svg";
 import view from "../images/view.svg";
+import ProductModal from "../components/Modal.vue";
+import { singleProduct } from "../utils/Data";
 
 interface Product {
   id: number;
   image1: string;
-  image2?: string; 
+  image2?: string;
   brand: string;
   title: string;
   total_ratings: number;
@@ -82,12 +87,13 @@ defineProps({
     required: true,
   },
   grid: {
-      type: Number,
-      required: true
-  }
+    type: Number,
+    required: true,
+  },
 });
 
 const wishlist = ref<number[]>([]);
+const isModalVisible = ref(false);
 
 const isProductInWishlist = (productId: number) =>
   wishlist.value.includes(productId);
@@ -99,8 +105,10 @@ const toggleWishlist = (productId: number) => {
     wishlist.value.push(productId);
   }
 };
+
+const showModal = () => {
+  isModalVisible.value = true;
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -110,17 +110,15 @@
             <button class="border-0 bg-transparent">
               <img :src="productcompare" alt="compare" />
             </button>
-            <router-link
-              :to="`/product/${item.id}`"
-              class="border-0 bg-transparent"
-            >
+            <button @click="showModal" class="border-0 bg-transparent">
               <img :src="view" alt="view" />
-            </router-link>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <ProductModal v-model:visible="isModalVisible" :product="singleProduct" />
 </template>
 <script setup lang="ts">
 import { ArrowLeftBold, ArrowRightBold } from "@element-plus/icons-vue";
@@ -129,6 +127,8 @@ import wish from "../images/wish.svg";
 import addedWish from "../images/wish-black.svg";
 import productcompare from "../images/prodcompare.svg";
 import view from "../images/view.svg";
+import ProductModal from "../components/Modal.vue";
+import { singleProduct } from "../utils/Data";
 
 const props = defineProps({
   data: {
@@ -136,6 +136,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+const isModalVisible = ref(false);
 
 const currentPage = ref<{ [key: number]: number }>({});
 
@@ -182,5 +184,9 @@ const toggleWishlist = (productId: number) => {
   } else {
     wishlist.value.push(productId);
   }
+};
+
+const showModal = () => {
+  isModalVisible.value = true;
 };
 </script>

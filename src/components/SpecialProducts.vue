@@ -1,6 +1,6 @@
 <template>
   <div v-for="(item, index) in specialProducts" :key="index" class="col-4 mb-3">
-    <div class="special-product-card position-relative">
+    <div class="special-product-card">
       <div class="col-6 d-flex justify-content-between px-3 align-items-center">
         <div
           class="discount-badge badge rounded text-center;"
@@ -25,31 +25,52 @@
 
       <div class="d-flex gap-0">
         <div class="d-flex flex-column col-6">
-          <img :src="item.image" class="img-fluid" :alt="item.title" />
+          <router-link :to="`/product/${item.id}`">
+            <img :src="item.image" class="img-fluid" :alt="item.title" />
+          </router-link>
           <span class="d-flex align-items-center flex-row gap-3">
-            <el-icon class="fs-6" style="color: #999999"
+            <el-icon
+              @click="prev(item)"
+              :disabled="!(currentPage[item.id] > 0)"
+              class="fs-6"
+              :style="{
+                color: '#999999',
+                cursor: currentPage[item.id] > 0 ? 'pointer' : 'not-allowed',
+              }"
               ><ArrowLeftBold
             /></el-icon>
-            <img
-              :src="item.image"
-              class="img-fluid"
-              style="width: 30%; border: 1px solid #eaeaea"
-              :alt="item.title"
-            />
-            <img
-              :src="item.image"
-              class="img-fluid"
-              style="width: 30%; border: 1px solid #eaeaea"
-              :alt="item.title"
-            />
-            <el-icon class="fs-6" style="color: #999999"
+            <div v-for="image in currentImages(item)" :key="image">
+              <img
+                :src="image"
+                class="img-fluid rounded"
+                style="border: 1px solid #eaeaea; width: 100px"
+                :alt="item.title"
+              />
+            </div>
+            <el-icon
+              @click="next(item)"
+              :disabled="
+                (currentPage[item.id] || 0) >=
+                Math.ceil(item.images.length / itemsPerPage) - 1
+              "
+              class="fs-6"
+              :style="{
+                color: '#999999',
+                cursor:
+                  (currentPage[item.id] || 0) <
+                  Math.ceil(item.images.length / itemsPerPage) - 1
+                    ? 'pointer'
+                    : 'not-allowed',
+              }"
               ><ArrowRightBold
             /></el-icon>
           </span>
         </div>
         <div class="product-details col-6">
           <h6 class="brand">{{ item.brand }}</h6>
-          <h5 class="title">{{ item.title }}</h5>
+          <router-link :to="`/product/${item.id}`">
+            <h5 class="title">{{ item.title }}</h5>
+          </router-link>
           <el-rate v-model="item.total_rating" :max="5" disabled class="mb-2" />
           <p class="price">
             <strike>$ 200</strike>
@@ -80,54 +101,67 @@
               ></div>
             </div>
           </div>
-          <router-link :to="`/product/${item.id}`" class="button">
-            Option
+          <router-link :to="`/product/${item.id}`" class="button px-4 py-2">
+            View Item
           </router-link>
         </div>
-        <div class="action-bar mt-3 position-absolute">
-        <div class="d-flex flex-column gap-15">
-          <button class="border-0 bg-transparent">
-            <img :src="productcompare" alt="compare" />
-          </button>
-          <router-link
-            :to="`/product/${item.id}`"
-            class="border-0 bg-transparent"
-          >
-            <img :src="view" alt="view" />
-          </router-link>
+        <div class="action-bar mt-3">
+          <div class="d-flex flex-column gap-15">
+            <button class="border-0 bg-transparent">
+              <img :src="productcompare" alt="compare" />
+            </button>
+            <router-link
+              :to="`/product/${item.id}`"
+              class="border-0 bg-transparent"
+            >
+              <img :src="view" alt="view" />
+            </router-link>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { ArrowLeftBold, ArrowRightBold } from "@element-plus/icons-vue";
-import { computed, defineProps, onMounted, ref } from "vue";
+import { computed, defineProps, ref } from "vue";
 import wish from "../images/wish.svg";
 import addedWish from "../images/wish-black.svg";
 import productcompare from "../images/prodcompare.svg";
 import view from "../images/view.svg";
 
-interface SpecialProduct {
-  id: number;
-  brand: string;
-  title: string;
-  total_rating: number;
-  price: number;
-  quantity: number;
-  sold: number;
-  image: string;
-  tags: string;
-  discount: string;
-}
-
 const props = defineProps({
   data: {
-    type: Array as () => SpecialProduct[],
+    type: Array as () => any[],
     required: true,
   },
 });
+
+const currentPage = ref<{ [key: number]: number }>({});
+
+const itemsPerPage = 2;
+
+const currentImages = (item: any) => {
+  const page = currentPage.value[item.id] || 0;
+  const start = page * itemsPerPage;
+  const flatImages = item.images.map((img: any) => Object.values(img)).flat();
+  return flatImages.slice(start, start + itemsPerPage);
+};
+
+const prev = (item: any) => {
+  const current = currentPage.value[item.id] || 0;
+  if (current > 0) {
+    currentPage.value[item.id] = current - 1;
+  }
+};
+
+const next = (item: any) => {
+  const current = currentPage.value[item.id] || 0;
+  const totalPages = Math.ceil(item.images.length / itemsPerPage);
+  if (current < totalPages - 1) {
+    currentPage.value[item.id] = current + 1;
+  }
+};
 
 const specialProducts = computed(() =>
   props.data.filter((item) => item.tags === "special")
@@ -149,8 +183,4 @@ const toggleWishlist = (productId: number) => {
     wishlist.value.push(productId);
   }
 };
-
-onMounted(() => {
-  console.log("data", props.data);
-});
 </script>

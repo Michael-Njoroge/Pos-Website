@@ -107,8 +107,16 @@
         </div>
         <div class="action-bar mt-3">
           <div class="d-flex flex-column gap-15">
-            <button class="border-0 bg-transparent">
-              <img :src="productcompare" alt="compare" />
+            <button
+              @click="toggleCompare(item.id)"
+              class="border-0 bg-transparent"
+            >
+              <img
+                :src="
+                  isProductInCompare(item.id) ? compareChecked : productcompare
+                "
+                alt="compare"
+              />
             </button>
             <button @click="showModal" class="border-0 bg-transparent">
               <img :src="view" alt="view" />
@@ -122,8 +130,9 @@
 </template>
 <script setup lang="ts">
 import { ArrowLeftBold, ArrowRightBold } from "@element-plus/icons-vue";
-import { computed, defineProps, ref } from "vue";
+import { computed, defineProps, ref, type PropType } from "vue";
 import wish from "../images/wish.svg";
+import compareChecked from "../images/check.svg";
 import addedWish from "../images/wish-black.svg";
 import productcompare from "../images/prodcompare.svg";
 import view from "../images/view.svg";
@@ -132,7 +141,7 @@ import { singleProduct } from "../utils/Data";
 
 const props = defineProps({
   data: {
-    type: Array as () => any[],
+    type: [Array, Object, String] as PropType<any>,
     required: true,
   },
 });
@@ -166,7 +175,7 @@ const next = (item: any) => {
 };
 
 const specialProducts = computed(() =>
-  props.data.filter((item) => item.tags === "special")
+  props.data.filter((item: any) => item.tags === "special")
 );
 
 const calculateProgress = (quantity: number, sold: number): number => {
@@ -174,6 +183,7 @@ const calculateProgress = (quantity: number, sold: number): number => {
 };
 
 const wishlist = ref<number[]>([]);
+const compare = ref<number[]>([]);
 
 const isProductInWishlist = (productId: number) =>
   wishlist.value.includes(productId);
@@ -183,6 +193,17 @@ const toggleWishlist = (productId: number) => {
     wishlist.value = wishlist.value.filter((id) => id !== productId);
   } else {
     wishlist.value.push(productId);
+  }
+};
+
+const isProductInCompare = (productId: number) =>
+  compare.value.includes(productId);
+
+const toggleCompare = (productId: number) => {
+  if (compare.value.includes(productId)) {
+    compare.value = compare.value.filter((id) => id !== productId);
+  } else {
+    compare.value.push(productId);
   }
 };
 

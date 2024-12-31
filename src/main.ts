@@ -7,6 +7,7 @@ import "element-plus/dist/index.css";
 import "./style.css";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import { createHead } from 'unhead';
+import Vue3Marquee from 'vue3-marquee'
 import router from "./router/index.ts";
 import App from "./App.vue";
 
@@ -20,4 +21,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.use(SimpleTypeahead);
 app.use(ElementPlus);
 app.use(router);
+app.use(Vue3Marquee);
 app.mount("#app");

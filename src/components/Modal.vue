@@ -12,18 +12,23 @@
   >
     <template #default>
       <div class="modal-body py-0">
-        <div class="d-flex align-items-center ">
+        <div class="d-flex align-items-center">
           <div class="flex-grow-1">
             <img :src="product.image" alt="product image" class="img-fluid" />
           </div>
-          <div class="d-flex flex-column flex-grow-1 ">
-            <h1 class="mb-3" style="font-size: 22px;font-weight: 500;line-height: 30px;">{{ product.title }}</h1>
+          <div class="d-flex flex-column flex-grow-1">
+            <h1
+              class="mb-3"
+              style="font-size: 22px; font-weight: 500; line-height: 30px"
+            >
+              {{ product.title }}
+            </h1>
             <h5 class="mb-3">{{ product.price }}</h5>
             <p class="mb-3 d-flex gap-4">
               Size:
               <el-select v-model="selectedSize" clearable style="width: 250px">
                 <el-option
-                v-for="(size, index) in product.size"
+                  v-for="(size, index) in product.size"
                   :key="index"
                   :label="Object.values(size)[0]"
                   :value="Object.values(size)[0]"
@@ -32,9 +37,9 @@
             </p>
             <p class="mb-3 d-flex gap-4">
               Color:
-              <el-select v-model="selectedColor"  clearable style="width: 250px">
+              <el-select v-model="selectedColor" clearable style="width: 250px">
                 <el-option
-                v-for="(color, index) in product.color"
+                  v-for="(color, index) in product.color"
                   :key="index"
                   :label="Object.values(color)[0]"
                   :value="Object.values(color)[0]"
@@ -81,40 +86,16 @@ import { ref } from "vue";
 import { defineProps, defineEmits } from "vue";
 
 const quantity = ref<number>(1);
-interface Product {
-  id: number;
-  title: string;
-  image: string;
-  quantity: number;
-  color: string;
-  size: string;
-  price: string;
-}
 
-const options = [
-  {
-    value: "Option1",
-    label: "Option1",
-  },
-  {
-    value: "Option2",
-    label: "Option2",
-  },
-  {
-    value: "Option3",
-    label: "Option3",
-  },
-];
 const props = defineProps<{
   visible: boolean;
-  product: Product;
-}>();
+  product: any;
+  }>();
 
 const product = props.product;
 
-
-const selectedSize = ref<string | null>(null); 
-const selectedColor = ref<string | null>(null);
+const selectedSize = ref<any | null>(null);
+const selectedColor = ref<any | null>(null);
 
 if (product.size.length > 0) {
   selectedSize.value = Object.values(product.size[0])[0];
@@ -131,20 +112,19 @@ const emit = defineEmits(["update:visible"]);
 // };
 
 const handleAdd = () => {
-    
-    ElNotification({
-    title: 'Success',
-    message: 'Successfully added to cart',
-    type: 'success',
-  })
-}
+  ElNotification({
+    title: "Success",
+    message: "Successfully added to cart",
+    type: "success",
+  });
+};
 </script>
 
 <style scoped>
 .custom-modal .el-dialog {
   max-width: 90%;
 }
-.el-dialog__close{
-    color: aqua;
+.el-dialog__close {
+  color: aqua;
 }
 </style>

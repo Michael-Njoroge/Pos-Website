@@ -1,120 +1,20 @@
-<script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
-
-// Icons
-import compareIcon from "../images/compare.svg";
-import wishlistIcon from "../images/wishlist.svg";
-import userIcon from "../images/user.svg";
-import cartIcon from "../images/cart.svg";
-import menuIcon from "../images/menu.svg";
-// import { Search } from "@element-plus/icons-vue";
-
-const router = useRouter();
-
-// Dummy data
-const dummyProducts = [
-  { id: 1, title: "Laptop" },
-  { id: 2, title: "Smartphone" },
-  { id: 3, title: "Tablet" },
-  { id: 4, title: "Smartwatch" },
-  { id: 5, title: "Desktop Computer" },
-  { id: 6, title: "Gaming Console" },
-  { id: 7, title: "Wireless Headphones" },
-  { id: 8, title: "Bluetooth Speaker" },
-  { id: 9, title: "External Hard Drive" },
-  { id: 10, title: "USB Flash Drive" },
-  { id: 11, title: "Digital Camera" },
-  { id: 12, title: "E-Reader" },
-  { id: 13, title: "Action Camera" },
-  { id: 14, title: "Drone" },
-  { id: 15, title: "Portable Monitor" },
-];
-
-const dummyCart = {
-  products: [
-    { id: 1, name: "Laptop" },
-    { id: 2, name: "Smartphone" },
-  ],
-  cartTotal: 1200,
-};
-
-const dummyAuthState = {
-  firstname: "Michael",
-  isAuthenticated: true,
-};
-
-// State variables
-// const paginate = ref(true);
-const productOptions = ref([] as any);
-// const language = ref("en");
-// const currency = ref("USD $");
-
-// Initialize cart and products
-const cartState = ref(dummyCart);
-const authState = ref(dummyAuthState as any);
-
-onMounted(() => {
-  // Populate product options with dummy data
-  productOptions.value = dummyProducts.map((product) => ({
-    id: product.id,
-    name: product.title,
-  }));
-});
-
-// Logout function
-// const handleLogout = () => {
-//   authState.value = null; // Clear auth state
-//   router.push("/");
-// };
-
-// Handle language and currency changes
-// const handleLanguageChange = (selectedLanguage: string) => {
-//   language.value = selectedLanguage;
-//   console.log(`Selected language: ${selectedLanguage}`);
-// };
-
-// const handleCurrencyChange = (selectedCurrency: string) => {
-//   currency.value = selectedCurrency;
-//   console.log(`Selected currency: ${selectedCurrency}`);
-// };
-
-const navigateToProduct = (selected: any) => {
-  if (selected.length > 0) {
-    router.push(`/product/${selected[0].id}`);
-  }
-};
-
-const onInputEventHandler = (inputValue: string) => {
-  console.log("Input value:", inputValue);
-};
-
-const onFocusEventHandler = () => {
-  console.log("Input field focused");
-};
-
-const onBlurEventHandler = () => {
-  console.log("Input field blurred");
-};
-
-const itemProjectionFunction = (item: any) => item.name;
-</script>
-
 <template>
-  <header class="header-top-strip py-3">
-    <div class="container-xxl" style="max-width: 90%;">
+  <header class="header-top-strip py-2">
+    <div class="container-xxl" style="max-width: 90%">
       <div class="row d-flex justify-content-between">
         <div class="col-6">
-          <p class="text-white mb-0">Free Shipping Over $100 & Free Returns</p>
+          <p class="bar-title text-white mb-0">
+            Free Shipping Over $100 & Free Returns
+          </p>
         </div>
         <div class="col-6 d-flex gap-3 justify-content-end">
-          <p class="text-end text-white mb-0">
+          <p class="bar-title text-end text-white mb-0">
             Hotline:
             <a class="text-white ms-1" href="tel:+254716002152">
               +254 716002152
             </a>
           </p>
-          <select class="bg-transparent text-white border-0">
+          <select class="bar-title bg-transparent text-white border-0">
             <option value="en">English</option>
             <option value="es">Español</option>
             <option value="de">Deutsch</option>
@@ -122,7 +22,7 @@ const itemProjectionFunction = (item: any) => item.name;
             <option value="ru">Русский</option>
             <option value="uk">Українська</option>
           </select>
-          <select class="bg-transparent text-white border-0">
+          <select class="bar-title bg-transparent text-white border-0">
             <option value="USD">United States (USD $)</option>
             <option value="SAR">Saudi Arabia (SAR ر.س)</option>
             <option value="RUB">Russia (RUB ₽)</option>
@@ -133,8 +33,8 @@ const itemProjectionFunction = (item: any) => item.name;
     </div>
   </header>
   <!-- Header Upper -->
-  <header class="header-upper py-3">
-    <div class="container-xxl" style="max-width: 90%;">
+  <header class="header-upper py-2">
+    <div class="container-xxl" style="max-width: 90%">
       <div class="row align-items-center">
         <div class="col-2">
           <h2>
@@ -142,25 +42,52 @@ const itemProjectionFunction = (item: any) => item.name;
           </h2>
         </div>
         <div class="col-5">
-          <div class="input-group">
-            <vue3-simple-typeahead
-              id="typeahead_id"
-              placeholder="Search for products here..."
-              :items="productOptions"
-              :minInputLength="1"
-              :itemProjection="itemProjectionFunction"
-              @selectItem="navigateToProduct"
-              @onInput="onInputEventHandler"
-              @onFocus="onFocusEventHandler"
-              @onBlur="onBlurEventHandler"
-            />
-          </div>
+          <vue3-simple-typeahead
+            id="typeahead_id"
+            placeholder="Search for products here..."
+            :items="productOptions"
+            :minInputLength="1"
+            :itemProjection="itemProjectionFunction"
+            @selectItem="navigateToProduct"
+            @onInput="onInputEventHandler"
+            @onFocus="onFocusEventHandler"
+            @onBlur="onBlurEventHandler"
+          >
+          <template #input>
+          </template>
+            <template #list-item-text="slot">
+              <div class="typeahead-item col-8 d-flex">
+                <img
+                  :src="slot.item.image"
+                  alt="Product"
+                  class="typeahead-image img-fluid w-25 h-auto"
+                />
+                <div>
+                  <span class="typeahead-title">{{ slot.item.name }}</span>
+                  <p class="typeahead-prices">
+                    <span class=""><strike>{{ slot.item.price }}</strike></span>
+                    <span class="text-danger">{{ slot.item.price1 }}</span>
+                    <span v-if="slot.item.oldPrice" class="old-price">{{
+                      slot.item.oldPrice
+                    }}</span>
+                  </p>
+                </div>
+              </div>
+            </template>
+            <template #list-footer>
+              <div class="d-flex justify-content-center align-items-center my-3" style="gap: 8rem;">
+                <p class="mb-0">Search For: "{{ searchtTerm.input }}"</p>
+                <el-icon class="fs-5 fw-500 mb-0" style="cursor: pointer;"><Right/></el-icon>
+              </div>
+            </template>
+          </vue3-simple-typeahead>
         </div>
-        <div class="header-upper-links col-5 d-flex justify-content-between">
+        <div class="header-upper-links col-5 gap-5 d-flex justify-content-end">
           <!-- Compare Products -->
           <router-link
             to="/compare-products"
             class="d-flex align-items-center gap-2 text-white"
+            style="font-size: 13px"
           >
             <img :src="compareIcon" alt="Compare" />
             <span
@@ -172,6 +99,7 @@ const itemProjectionFunction = (item: any) => item.name;
           <router-link
             to="/wishlist"
             class="d-flex align-items-center gap-2 text-white"
+            style="font-size: 13px"
           >
             <img :src="wishlistIcon" alt="Wishlist" />
             <span
@@ -185,6 +113,7 @@ const itemProjectionFunction = (item: any) => item.name;
               v-if="authState"
               to="#"
               class="d-flex align-items-center gap-2 text-white"
+              style="font-size: 13px"
             >
               <img :src="userIcon" alt="User" />
               <span
@@ -208,7 +137,9 @@ const itemProjectionFunction = (item: any) => item.name;
               <span class="badge bg-white text-dark">{{
                 cartState?.products?.length || 0
               }}</span>
-              <p class="mb-0">${{ cartState?.cartTotal || 0 }}</p>
+              <p class="mb-0" style="font-size: 13px">
+                ${{ cartState?.cartTotal || 0 }}
+              </p>
             </div>
           </router-link>
         </div>
@@ -216,8 +147,8 @@ const itemProjectionFunction = (item: any) => item.name;
     </div>
   </header>
   <!-- Header Bottom -->
-  <header class="header-bottom py-3">
-    <div class="container-xxl" style="max-width: 90%;">
+  <header class="header-bottom py-2">
+    <div class="container-xxl" style="max-width: 90%">
       <div class="row">
         <div class="col-12">
           <div class="menu-bottom d-flex align-items-center">
@@ -259,6 +190,138 @@ const itemProjectionFunction = (item: any) => item.name;
   </header>
 </template>
 
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+
+// Icons
+import compareIcon from "../images/compare.svg";
+import wishlistIcon from "../images/wishlist.svg";
+import userIcon from "../images/user.svg";
+import cartIcon from "../images/cart.svg";
+import menuIcon from "../images/menu.svg";
+import { dummyProducts } from "../utils/Data";
+// import { Search } from "@element-plus/icons-vue";
+
+const router = useRouter();
+const searchtTerm = ref();
+
+const dummyCart = {
+  products: [
+    { id: 1, name: "Laptop" },
+    { id: 2, name: "Smartphone" },
+  ],
+  cartTotal: 1200,
+};
+
+const dummyAuthState = {
+  firstname: "Michael",
+  isAuthenticated: true,
+};
+
+// State variables
+// const paginate = ref(true);
+const productOptions = ref([] as any);
+// const language = ref("en");
+// const currency = ref("USD $");
+
+// Initialize cart and products
+const cartState = ref(dummyCart);
+const authState = ref(dummyAuthState as any);
+
+onMounted(() => {
+  // Populate product options with dummy data
+  productOptions.value = dummyProducts.map((product) => ({
+    id: product.id,
+    name: product.title,
+    price: product.price,
+    price1: product.price1,
+    image: product.image,
+  }));
+});
+
+// Logout function
+// const handleLogout = () => {
+//   authState.value = null; // Clear auth state
+//   router.push("/");
+// };
+
+// Handle language and currency changes
+// const handleLanguageChange = (selectedLanguage: string) => {
+//   language.value = selectedLanguage;
+//   console.log(`Selected language: ${selectedLanguage}`);
+// };
+
+// const handleCurrencyChange = (selectedCurrency: string) => {
+//   currency.value = selectedCurrency;
+//   console.log(`Selected currency: ${selectedCurrency}`);
+// };
+
+const navigateToProduct = (selected: any) => {
+  if (selected.length > 0) {
+    router.push(`/product/${selected[0].id}`);
+  }
+};
+
+const onInputEventHandler = (inputValue: string) => {
+  searchtTerm.value=inputValue;
+  console.log("Input value:", inputValue);
+};
+
+const onFocusEventHandler = () => {
+  console.log("Input field focused");
+};
+
+const onBlurEventHandler = () => {
+  console.log("Input field blurred");
+};
+
+const itemProjectionFunction = (item: any) => {
+  return item.name || item?.value?.name || "";
+};
+</script>
+
 <style scoped>
-/* Add your styles here */
+.search-bar {
+  position: relative;
+}
+
+.typeahead-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 15px;
+}
+
+.typeahead-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.typeahead-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.typeahead-prices {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.price {
+  font-size: 14px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.old-price {
+  font-size: 12px;
+  color: #dc3545;
+  text-decoration: line-through;
+}
+
 </style>

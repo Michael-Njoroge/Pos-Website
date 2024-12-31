@@ -72,8 +72,9 @@ a {
   font-weight: 500;
   margin-bottom: 30px;
 }
-
-
+.bar-title{
+  font-size: 12px;
+}
 .text-decoration-line-through {
   text-decoration: line-through;
 } 
@@ -146,13 +147,22 @@ a {
   overflow: hidden;
 }
 
-.input-group .simple-typeahead-input {
-  flex-grow: 1;
-  padding: 0.5rem 1rem;
-  border: none;
-  outline: none;
-  font-size: 1rem;
+#typeahead_id{
   width: 100%;
+  border: 1px solid var(--color-3b4149);
+  padding: 0.5rem 1rem;
+  outline: none;
+  flex-grow: 1;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.simple-typeahead-list{
+  text-align: start;
+}
+
+.simple-typeahead-list:hover{
+  background-color: transparent;
 }
 
 .input-group .input-group-text {

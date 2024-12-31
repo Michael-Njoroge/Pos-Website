@@ -43,8 +43,16 @@
       </div>
       <div class="action-bar position-absolute">
         <div class="d-flex flex-column gap-15">
-          <button class="border-0 bg-transparent">
-            <img :src="productcompare" alt="compare" />
+          <button
+            @click="toggleCompare(item.id)"
+            class="border-0 bg-transparent"
+          >
+            <img
+              :src="
+                isProductInCompare(item.id) ? compareChecked : productcompare
+              "
+              alt="compare"
+            />
           </button>
           <button @click="showModal" class="border-0 bg-transparent">
             <img :src="view" alt="view" />
@@ -61,29 +69,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, type PropType } from "vue";
 import wish from "../images/wish.svg";
 import addedWish from "../images/wish-black.svg";
 import productcompare from "../images/prodcompare.svg";
+import compareChecked from "../images/check.svg";
 import addcart from "../images/add-cart.svg";
 import view from "../images/view.svg";
 import ProductModal from "../components/Modal.vue";
 import { singleProduct } from "../utils/Data";
-
-interface Product {
-  id: number;
-  image1: string;
-  image2?: string;
-  brand: string;
-  title: string;
-  total_ratings: number;
-  description: string;
-  price: number;
-}
-
 defineProps({
   data: {
-    type: Array as () => Product[],
+    type: [Array, Object, String] as PropType<any>,
     required: true,
   },
   grid: {
@@ -92,7 +89,9 @@ defineProps({
   },
 });
 
+
 const wishlist = ref<number[]>([]);
+const compare = ref<number[]>([]);
 const isModalVisible = ref(false);
 
 const isProductInWishlist = (productId: number) =>
@@ -103,6 +102,17 @@ const toggleWishlist = (productId: number) => {
     wishlist.value = wishlist.value.filter((id) => id !== productId);
   } else {
     wishlist.value.push(productId);
+  }
+};
+
+const isProductInCompare = (productId: number) =>
+  compare.value.includes(productId);
+
+const toggleCompare = (productId: number) => {
+  if (compare.value.includes(productId)) {
+    compare.value = compare.value.filter((id) => id !== productId);
+  } else {
+    compare.value.push(productId);
   }
 };
 

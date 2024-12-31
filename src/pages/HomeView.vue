@@ -141,9 +141,6 @@
   <section class="famous-wrapper home-wrapper-2 py-5">
     <div class="container-xxl" style="max-width: 90%">
       <div class="row">
-        <div class="col-12">
-          <h5 class="section-heading">Famous Collection</h5>
-        </div>
         <div class="col-3">
           <div class="famous-card position-relative">
             <img
@@ -209,10 +206,141 @@
   <section class="special-wrapper home-wrapper-2 py-5">
     <div class="container-xxl" style="max-width: 90%">
       <div class="row">
-        <div class="col-12">
-          <h5 class="section-heading">Special Offer</h5>
+        <div class="col-12 d-flex justify-content-between">
+          <h5 class="section-heading">Special Products</h5>
+          <div
+            class="d-flex gap-2 mt-3"
+            style="color: #999999; cursor: pointer"
+          >
+            <el-icon
+              @click="prev2"
+              :style="{ cursor: canGoPrev2 ? 'pointer' : 'not-allowed' }"
+              class="fs-6"
+              ><ArrowLeftBold
+            /></el-icon>
+            <el-icon
+              @click="next2"
+              :style="{ cursor: canGoNext2 ? 'pointer' : 'not-allowed' }"
+              class="fs-6"
+              ><ArrowRightBold
+            /></el-icon>
+          </div>
         </div>
-        <SpecialProducts :data="specialProducts" />
+        <SpecialProducts :data="displayedProducts2" />
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-wrapper home-wrapper-2 py-5">
+    <div class="container-xxl" style="max-width: 90%">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-between">
+          <h5 class="section-heading">Our Popular Products</h5>
+          <div
+            class="d-flex gap-2 mt-3"
+            style="color: #999999; cursor: pointer"
+          >
+            <el-icon
+              @click="prev1"
+              :style="{ cursor: canGoPrev1 ? 'pointer' : 'not-allowed' }"
+              class="fs-6"
+              ><ArrowLeftBold
+            /></el-icon>
+            <el-icon
+              @click="next1"
+              :style="{ cursor: canGoNext1 ? 'pointer' : 'not-allowed' }"
+              class="fs-6"
+              ><ArrowRightBold
+            /></el-icon>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="product-card h-100">
+            <div
+              class="d-flex gap-2 flex-column"
+              v-for="(item, index) in popularProducts"
+              :key="index"
+            >
+              <div
+                class="d-flex gap-3 align-items-center p-1 heading-cat"
+                style="cursor: pointer"
+              >
+                <img
+                  :src="item.image"
+                  class="img-fluid category-img"
+                  alt="cat-1"
+                />
+                <h2 style="font-size: 14px; font-weight: 500" class="mb-0">
+                  {{ item.title }}
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2" style="cursor: pointer">
+          <div class="product-card position-relative p-0">
+            <img
+              class="img-fluid"
+              src="../images/cat-product-banner.jpg"
+              alt="offer"
+            />
+          </div>
+        </div>
+        <ProductCard :data="displayedProducts1" :grid="6" />
+      </div>
+    </div>
+  </section>
+
+  <section class="marque-wrapper home-wrapper-2 py-5">
+    <div class="container-xxl" style="max-width: 90%">
+      <div class="row">
+        <div class="col-12">
+          <div class="marque-inner-wrapper card-wrapper">
+            <Vue3Marquee
+              :pause-on-hover="true"
+              :speed="10"
+              class="d-flex align-items-center"
+            >
+              <div
+                v-for="(img, index) in [...marqueImages, ...marqueImages]"
+                :key="index"
+                class="marque-item"
+              >
+                <img :src="img" alt="Brand Logo" class="img-fluid" />
+              </div>
+            </Vue3Marquee>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-wrapper home-wrapper-2 py-5">
+    <div class="container-xxl" style="max-width: 90%">
+      <div class="row">
+        <div className="col-12 d-flex justify-content-between">
+          <h5 className="section-heading">Our Latest News</h5>
+          <div
+            class="d-flex gap-2 mt-3"
+            style="color: #999999; cursor: pointer"
+          >
+            <el-icon
+              @click="prev3"
+              :style="{ cursor: canGoPrev3 ? 'pointer' : 'not-allowed' }"
+              class="fs-6"
+              ><ArrowLeftBold
+            /></el-icon>
+            <el-icon
+              @click="next3"
+              :style="{ cursor: canGoNext3 ? 'pointer' : 'not-allowed' }"
+              class="fs-6"
+              ><ArrowRightBold
+            /></el-icon>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex gap-4">
+        <BlogCard :blogs="displayedProducts3" />
       </div>
     </div>
   </section>
@@ -227,34 +355,97 @@ import {
   categories,
   featuredProducts,
   specialProducts,
+  popularProducts,
+  marqueImages,
+  blogs,
 } from "../utils/Data";
 import ProductCard from "../components/ProductCard.vue";
 import { ArrowLeftBold, ArrowRightBold } from "@element-plus/icons-vue";
 import SpecialProducts from "../components/SpecialProducts.vue";
 import { computed, ref } from "vue";
+import BlogCard from "../components/BlogCard.vue";
 
 useHead({ title: "Tech Mart | Home" });
 
+function useCarousel(items: any, itemsPerPage: any) {
+  const currentIndex = ref(0);
 
-const itemsPerPage = 6;
-const currentIndex = ref(0);
+  const displayedItems = computed(() =>
+    items.slice(currentIndex.value, currentIndex.value + itemsPerPage)
+  );
 
-const displayedProducts = computed(() => {
-  return featuredProducts.slice(currentIndex.value, currentIndex.value + itemsPerPage);
-});
+  const canGoPrev = computed(() => currentIndex.value > 0);
+  const canGoNext = computed(
+    () => currentIndex.value + itemsPerPage < items.length
+  );
 
-const canGoPrev = computed(() => currentIndex.value > 0);
-const canGoNext = computed(() => currentIndex.value + itemsPerPage < featuredProducts.length);
+  const prev = () => {
+    if (canGoPrev.value) currentIndex.value -= 1;
+  };
 
-const prev = () => {
-  if (canGoPrev.value) {
-    currentIndex.value -= 1;
-  }
-};
+  const next = () => {
+    if (canGoNext.value) currentIndex.value += 1;
+  };
 
-const next = () => {
-  if (canGoNext.value) {
-    currentIndex.value += 1;
-  }
-};
+  return { displayedItems, canGoPrev, canGoNext, prev, next };
+}
+
+// Featured Products Carousel
+const {
+  displayedItems: displayedProducts,
+  canGoPrev,
+  canGoNext,
+  prev,
+  next,
+} = useCarousel(featuredProducts, 6);
+
+// Popular Products Carousel
+const {
+  displayedItems: displayedProducts1,
+  canGoPrev: canGoPrev1,
+  canGoNext: canGoNext1,
+  prev: prev1,
+  next: next1,
+} = useCarousel(featuredProducts, 4);
+
+// Special Products Carousel
+const {
+  displayedItems: displayedProducts2,
+  canGoPrev: canGoPrev2,
+  canGoNext: canGoNext2,
+  prev: prev2,
+  next: next2,
+} = useCarousel(specialProducts, 3);
+
+// Blogs Carousel
+const {
+  displayedItems: displayedProducts3,
+  canGoPrev: canGoPrev3,
+  canGoNext: canGoNext3,
+  prev: prev3,
+  next: next3,
+} = useCarousel(blogs, 4);
 </script>
+
+<style scoped>
+.heading-cat:hover {
+  background-color: red;
+}
+.category-img {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+}
+
+.marque-item {
+  margin-right: 2rem;
+  flex-shrink: -5;
+  cursor: pointer;
+  perspective: 1000px;
+  transition: transform 0.5s ease-in-out;
+  transform-style: preserve-3d;
+}
+.marque-item:hover {
+  transform: rotateY(360deg);
+}
+</style>

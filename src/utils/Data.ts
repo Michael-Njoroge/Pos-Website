@@ -1,5 +1,6 @@
 import banner1 from "../images/main-banner-1.jpg";
 import banner2 from "../images/main-banner.jpg";
+import single from "../images/single.jpg";
 import catbanner1 from "../images/catbanner-01.jpg";
 import catbanner2 from "../images/catbanner-02.jpg";
 import catbanner3 from "../images/catbanner-03.jpg";
@@ -43,6 +44,44 @@ import s021 from "../images/special/222.jpg";
 import s200 from "../images/special/221.jpg";
 import s003 from "../images/special/0004.jpg";
 import s030 from "../images/special/0040.jpg";
+
+import cat1 from "../images/cat-icon-01.png";
+import cat2 from "../images/cat-icon-02.png";
+import cat3 from "../images/cat-icon-03.png";
+import cat4 from "../images/special/0003.png";
+
+import brand1 from "../images/brand-01.png";
+import brand2 from "../images/brand-02.png";
+import brand3 from "../images/brand-03.png";
+import brand4 from "../images/brand-04.png";
+import brand5 from "../images/brand-05.png";
+import brand6 from "../images/brand-06.png";
+import brand7 from "../images/brand-07.png";
+import brand8 from "../images/brand-08.png";
+
+import blog1 from "../images/blogs/blog-1.jpg";
+import blog2 from "../images/blogs/blog-2.jpg";
+import blog3 from "../images/blogs/blog-3.jpg";
+import blog4 from "../images/blogs/blog-4.jpg";
+import blog5 from "../images/blogs/blog-5.jpg";
+
+export const dummyProducts = [
+  { id: 1, title: "Samsung Galaxy Tab A SM-T295, 4G Factory Unlocked", price1: "$800", price: "$1000", image: f10 },
+  { id: 2, title: "High-End Smartphone with Advanced Features and 5G Connectivity", price1: "$500", price: "$800", image: f11 },
+  { id: 3, title: "Portable Tablet with HD Display, Ideal for Work and Entertainment", price1: "$450", price: "$500", image: f20 },
+  { id: 4, title: "Smartwatch with Fitness Tracking, Heart Rate Monitor, and GPS", price1: "$150", price: "$200", image: f21 },
+  { id: 5, title: "Powerful Desktop Computer with High-Speed Processor and Graphics", price1: "$1150", price: "$1200", image: f30 },
+  { id: 6, title: "Next-Gen Gaming Console with Ultra HD Graphics and Streaming Support", price1: "$330", price: "$400", image: f31 },
+  { id: 7, title: "Wireless Over-Ear Headphones with Noise Cancellation and Long Battery Life", price1: "$100", price: "$150", image: f40 },
+  { id: 8, title: "Compact Bluetooth Speaker with Waterproof Design and High-Quality Sound", price1: "$60", price: "$100", image: f41 },
+  { id: 9, title: "External Hard Drive with 1TB Storage Capacity and Fast Data Transfer", price1: "$20", price: "$80", image: f50 },
+  { id: 10, title: "USB Flash Drive with Large Storage Capacity and Super Fast Transfer Speed", price1: "$3", price: "$20", image: f51 },
+  { id: 11, title: "Digital Camera with 4K Video Recording and 20MP Image Resolution", price1: "$500", price: "$600", image: f60 },
+  { id: 12, title: "E-Reader with Long Battery Life and High-Resolution Display for Comfortable Reading", price1: "$110", price: "$120", image: f61 },
+  { id: 13, title: "Action Camera with 4K Recording and Waterproof Design for Adventure Enthusiasts", price1: "$250", price: "$300", image: f30 },
+  { id: 14, title: "Drone with HD Camera, GPS Stabilization, and Long Battery Life for Aerial Photography", price1: "$570", price: "$800", image: f20 },
+  { id: 15, title: "Portable Monitor with 15.6-inch Display and Full HD Resolution for On-the-Go Productivity", price1: "$225", price: "$250", image: f50 },
+];
 
 export const carouselItems = [
   {
@@ -333,4 +372,141 @@ export const specialProducts = [
       },
     ],
   },
+  {
+    id: 4,
+    brand: "Gadget Co.",
+    title: "Hero Session Action Camera with 8MP...",
+    total_rating: 4.8,
+    price: 149.99,
+    quantity: 100,
+    sold: 45,
+    image: s002,
+    tags: "special",
+    discount: "-15%",
+    images: [
+      {
+        file_url1: s020,
+      },
+      {
+        file_url1: s021,
+      },
+      {
+        file_url1: s021,
+      },
+      {
+        file_url2: s200,
+      },
+    ],
+  },
+  {
+    id: 5,
+    brand: "Tech Brand",
+    title: " Samsung Galaxy Note10+ Mobile Phone; Sim...",
+    total_rating: 4.5,
+    price: 99.99,
+    quantity: 50,
+    sold: 20,
+    image: s001, // assuming f10 is a valid image variable
+    tags: "special",
+    discount: "-10%",
+    images: [
+      {
+        file_url1: s010,
+      },
+      {
+        file_url1: s011,
+      },
+      {
+        file_url1: s011,
+      },
+      {
+        file_url2: s100,
+      },
+      {
+        file_url2: s100,
+      },
+      {
+        file_url2: s101,
+      },
+    ],
+  },
 ];
+
+export const singleProduct = {
+  id: "1",
+  title: "Honor T1 7.0 1 GB RAM 8 GB ROM 7 inch with Wi-Fi+3G Tablet",
+  price: "$100.00",
+  quantity: 20,
+  color: [{ C1: "#03330" }, { C2: "#BB7N0" }, { C1: "#PL3IO" }],
+  size: [{ S: "S" }, { L: "L" }, { M: "M" }],
+  image: single,
+};
+
+export const popularProducts = [
+  {
+    title: "Smart Watch",
+    image: cat3,
+  },
+  {
+    title: "Speaker",
+    image: cat1,
+  },
+  {
+    title: "Laptops",
+    image: cat2,
+  },
+  {
+    title: "Smart Phones",
+    image: cat4,
+  },
+];
+
+export const marqueImages = [
+  brand1,
+  brand2,
+  brand3,
+  brand4,
+  brand5,
+  brand6,
+  brand7,
+  brand8,
+];
+
+
+export const blogs = [
+  {
+    id:"1",
+    title: "A beautiful sunday morning renaissance",
+    description: "You’re only as good as your last collection, which is an enormous pressure. I think there is something about luxury...",
+    image: blog1,
+    date:"11 June, 2023"
+  },
+  {
+    id:"2",
+    title: "Sed ut perspiciatis unde omnis renaissance",
+    description: "To enjoy alternately the sight of their distress. He really shouted with pleasure; and, shaking Monsieur Du Bois...",
+    image: blog2,
+    date:"12 July, 2024"
+  },
+  {
+    id:"3",
+    title: "Vitae magnis fusce laoreet porttitor",
+    description: "You’re only as good as your last collection, which is an enormous pressure. I think there is something about luxury...",
+    image: blog3,
+    date: "22 April, 2022"
+  },
+  {
+    id:"4",
+    title: "Urna pretium elit mauris cursus curabitu",
+    description: "You’re only as good as your last collection, which is an enormous pressure. I think there is something About...",
+    image: blog4,
+    date:"09 October, 2021"
+  },
+  {
+    id:"5",
+    title: " Risus retium tortor metus classical",
+    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur...",
+    image: blog5,
+    date:"19 May, 2022"
+  }
+]

@@ -786,7 +786,7 @@ footer .input-group-text {
 .auth-card {
   padding: 20px;
   background-color: white;
-  width: 500px;
+  width: 600px;
   margin: 30px auto;
   border-radius: 10px;
 }
@@ -802,13 +802,31 @@ footer .input-group-text {
   color: var(--color-777777);
 }
 
-.auth-card .form-control {
+.auth-card input {
   height: 50px;
   background-color: var(--color-f5f5f7);
   color: var(--color-777777);
   font-size: 14px;
   border-radius: 10px;
   border-color: transparent;
+  padding: 10px;
+}
+.el-input__wrapper{
+  padding: 0;
+  box-shadow: none;
+}
+
+
+.el-input__wrapper:hover {
+  box-shadow: none !important; /* Remove shadow on hover */
+}
+
+.el-input__wrapper:focus {
+  box-shadow: none !important; /* Remove shadow on focus */
+}
+
+.el-form-item.is-error .el-input__wrapper {
+  box-shadow: none !important; /* Remove error shadow */
 }
 
 .auth-card a {

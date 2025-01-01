@@ -136,7 +136,7 @@ import compareChecked from "../images/check.svg";
 import addedWish from "../images/wish-black.svg";
 import productcompare from "../images/prodcompare.svg";
 import view from "../images/view.svg";
-import ProductModal from "../components/Modal.vue";
+import ProductModal from "../components/ProductViewModal.vue";
 import { singleProduct } from "../utils/Data";
 
 const props = defineProps({

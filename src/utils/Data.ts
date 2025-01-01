@@ -83,6 +83,55 @@ export const dummyProducts = [
   { id: 15, title: "Portable Monitor with 15.6-inch Display and Full HD Resolution for On-the-Go Productivity", price1: "$225", price: "$250", image: f50 },
 ];
 
+export const categoriesMenus = [
+  {
+    id: 1,
+    name: "Home",
+    link: "/",
+  },
+  {
+    id: 2,
+    name: "Cameras & Videos",
+    link: "#",
+  },
+  {
+    id: 3,
+    name: "Computers & Laptops",
+    link: "#",
+  },
+  {
+    id: 4,
+    name: "Home Appliances",
+    link: "#",
+  },
+  {
+    id: 5,
+    name: "Handbag",
+    link: "/handbag",
+  },
+  {
+    id: 6,
+    name: "Mobiles & Tablets",
+    link: "/mobiles-tablets",
+  },
+  {
+    id: 7,
+    name: "Smart Phones",
+    link: "/smart-phones",
+  },
+  {
+    id: 8,
+    name: "Portable Speakers",
+    link: "/portable-speakers",
+  },
+  {
+    id: 9,
+    name: "Music & Gaming",
+    link: "/music-gaming",
+  },
+];
+
+
 export const carouselItems = [
   {
     image: banner1,

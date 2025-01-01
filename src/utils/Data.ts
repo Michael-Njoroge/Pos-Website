@@ -88,90 +88,46 @@ export const categoriesMenus = [
     id: 1,
     name: "Home",
     link: "/",
-    subItems: [], // Home does not have subcategories
   },
   {
     id: 2,
     name: "Cameras & Videos",
     link: "#",
-    subItems: [
-      { id: 1, name: "DSLR Cameras", link: "/cameras/dslr" },
-      { id: 2, name: "Action Cameras", link: "/cameras/action" },
-      { id: 3, name: "Camcorders", link: "/cameras/camcorders" },
-      { id: 4, name: "Camera Accessories", link: "/cameras/accessories" },
-    ],
   },
   {
     id: 3,
     name: "Computers & Laptops",
     link: "#",
-    subItems: [
-      { id: 1, name: "Laptops", link: "/computers/laptops" },
-      { id: 2, name: "Desktops", link: "/computers/desktops" },
-      { id: 3, name: "Monitors", link: "/computers/monitors" },
-      { id: 4, name: "Computer Accessories", link: "/computers/accessories" },
-    ],
   },
   {
     id: 4,
     name: "Home Appliances",
     link: "#",
-    subItems: [
-      { id: 1, name: "Refrigerators", link: "/home-appliances/refrigerators" },
-      { id: 2, name: "Microwaves", link: "/home-appliances/microwaves" },
-      { id: 3, name: "Washing Machines", link: "/home-appliances/washing-machines" },
-      { id: 4, name: "Air Conditioners", link: "/home-appliances/air-conditioners" },
-    ],
   },
   {
     id: 5,
     name: "Handbag",
     link: "/handbag",
-    subItems: [
-      { id: 1, name: "Leather Bags", link: "/handbag/leather-bags" },
-      { id: 2, name: "Clutches", link: "/handbag/clutches" },
-      { id: 3, name: "Backpacks", link: "/handbag/backpacks" },
-    ],
   },
   {
     id: 6,
     name: "Mobiles & Tablets",
     link: "/mobiles-tablets",
-    subItems: [
-      { id: 1, name: "Smartphones", link: "/mobiles-tablets/smartphones" },
-      { id: 2, name: "Tablets", link: "/mobiles-tablets/tablets" },
-      { id: 3, name: "Mobile Accessories", link: "/mobiles-tablets/accessories" },
-    ],
   },
   {
     id: 7,
     name: "Smart Phones",
     link: "/smart-phones",
-    subItems: [
-      { id: 1, name: "Android Phones", link: "/smart-phones/android" },
-      { id: 2, name: "iPhones", link: "/smart-phones/iphones" },
-      { id: 3, name: "Refurbished Phones", link: "/smart-phones/refurbished" },
-    ],
   },
   {
     id: 8,
     name: "Portable Speakers",
     link: "/portable-speakers",
-    subItems: [
-      { id: 1, name: "Bluetooth Speakers", link: "/portable-speakers/bluetooth" },
-      { id: 2, name: "Waterproof Speakers", link: "/portable-speakers/waterproof" },
-      { id: 3, name: "Mini Speakers", link: "/portable-speakers/mini" },
-    ],
   },
   {
     id: 9,
     name: "Music & Gaming",
     link: "/music-gaming",
-    subItems: [
-      { id: 1, name: "Headphones", link: "/music-gaming/headphones" },
-      { id: 2, name: "Gaming Consoles", link: "/music-gaming/consoles" },
-      { id: 3, name: "Speakers", link: "/music-gaming/speakers" },
-    ],
   },
 ];
 

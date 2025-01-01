@@ -7,6 +7,8 @@ const routes = [
   { path: '/login', component: () => import('../pages/LoginView.vue') },
   { path: '/signup', component: () => import('../pages/RegisterView.vue') },
   { path: '/forgot-password', component: () => import('../pages/ForgotPasswordView.vue') },
+  { path: '/wishlist', component: () => import('../pages/WishlistView.vue') },
+  { path: '/compare-products', component: () => import('../pages/CompareView.vue') },
 ];
 
 // Create the router instance

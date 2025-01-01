@@ -559,3 +559,213 @@ export const blogs = [
     date:"19 May, 2022"
   }
 ]
+
+export const wishlistItems = [
+  {
+    id: "1",
+    title: "Honor T1 7.0 1 GB RAM 8 GB ROM 7 inch with Wi-Fi+3G Tablet",
+    price: "100.00",
+    price1: "80.00",
+    images: [
+      {
+        file_url: f10,
+      },
+    ],
+  },
+  {
+    id: "2",
+    title: "Samsung Galaxy M32 6GB RAM 128GB ROM",
+    price: "150.00",
+    price1: "100.00",
+    images: [
+      {
+        file_url: f11,
+      },
+    ],
+  },
+  {
+    id: "3",
+    title: "Apple iPad Pro 2022 12.9-inch, WiFi + Cellular",
+    price: "1200.00",
+    price1: "1100.00",
+    images: [
+      {
+        file_url: f21,
+      },
+    ],
+  },
+  {
+    id: "4",
+    title: "Honor T1 7.0 1 GB RAM 8 GB ROM 7 inch with Wi-Fi+3G Tablet",
+    price: "100.00",
+    price1: "90.00",
+    images: [
+      {
+        file_url: f20,
+      },
+    ],
+  },
+  {
+    id: "5",
+    title: "Samsung Galaxy M32 6GB RAM 128GB ROM",
+    price: "150.00",
+    price1: "145.00",
+    images: [
+      {
+        file_url: f31,
+      },
+    ],
+  },
+  {
+    id: "6",
+    title: "Apple iPad Pro 2022 12.9-inch, WiFi + Cellular",
+    price: "1200.00",
+    price1: "1000.00",
+    images: [
+      {
+        file_url: f41,
+      },
+    ],
+  },
+];
+
+export const compareItems = [
+  {
+    id: "1",
+    title: "Honor T1 7.0 1 GB RAM 8 G...",
+    price: "240.00",
+    price1: "200.00",
+    brand: {
+      title: "Brand",
+      description: "Havels"
+    },
+    type: {
+      title: "Type",
+      description: "Tablet Computers"
+    },
+    availability: {
+      title: "Availability",
+      description: "In Stock"
+    },
+    images: [
+      {
+        file_url: f10,
+      },
+    ],
+  },
+  {
+    id: "2",
+    title: "Honor T1 7.0 1 GB RAM 8 G...",
+    price: "230.00",
+    price1: "200.00",
+    brand: {
+      title: "Brand",
+      description: "Havels"
+    },
+    type: {
+      title: "Type",
+      description: "Phones"
+    },
+    availability: {
+      title: "Availability",
+      description: "In Stock"
+    },
+    images: [
+      {
+        file_url: f11,
+      },
+    ],
+  },
+  {
+    id: "3",
+    title: "Honor T1 7.0 1 GB RAM 8 G...",
+    price: "156.00",
+    price1: "140.00",
+    brand: {
+      title: "Brand",
+      description: "Havels"
+    },
+    type: {
+      title: "Type",
+      description: "Tablet"
+    },
+    availability: {
+      title: "Availability",
+      description: "In Stock"
+    },
+    images: [
+      {
+        file_url: f31,
+      },
+    ],
+  },
+  {
+    id: "4",
+    title: "Honor T1 7.0 1 GB RAM 8 G...",
+    price: "100.00",
+    price1: "90.00",
+    brand: {
+      title: "Brand",
+      description: "Havels"
+    },
+    type: {
+      title: "Type",
+      description: "Computers"
+    },
+    availability: {
+      title: "Availability",
+      description: "In Stock"
+    },
+    images: [
+      {
+        file_url: f51,
+      },
+    ],
+  },
+  {
+    id: "5",
+    title: "Honor T1 7.0 1 GB RAM 8 G...",
+    price: "300.00",
+    price1: "250.00",
+    brand: {
+      title: "Brand",
+      description: "Havels"
+    },
+    type: {
+      title: "Type",
+      description: "Computers"
+    },
+    availability: {
+      title: "Availability",
+      description: "In Stock"
+    },
+    images: [
+      {
+        file_url: f60,
+      },
+    ],
+  },
+  {
+    id: "6",
+    title: "Honor T1 7.0 1 GB RAM 8 G...",
+    price: "560.00",
+    price1: "500.00",
+    brand: {
+      title: "Brand",
+      description: "Havels"
+    },
+    type: {
+      title: "Type",
+      description: "Computers"
+    },
+    availability: {
+      title: "Availability",
+      description: "In Stock"
+    },
+    images: [
+      {
+        file_url: f41,
+      },
+    ],
+  },
+]

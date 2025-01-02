@@ -8,7 +8,7 @@
   >
     <template #header>
       <div class="p-0">
-        <span v-if="cartData.length">Shopping Cart</span>
+        <span v-if="cartData.length">Shopping cart</span>
         <button
           class="el-drawer__close-btn"
           @click="drawer = false"
@@ -68,7 +68,7 @@
         </div>
         <div class="d-flex flex-column gap-2 mt-2">
           <h5 class="fw-bold text-muted mb-0" style="font-size: 14px">
-            SubTotal
+            Sub total
           </h5>
           <p>
             Ksh {{

@@ -2,7 +2,7 @@
   <div>
     <input
       :type="type"
-      class="form-control"
+      class="form-control text-muted"
       :class="classname"
       :name="name"
       :placeholder="placeholder"
@@ -11,13 +11,15 @@
       :onchange="onchange"
       :disabled="disabled"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      @change="$emit('change', $event); console.log('Change event emitted');"
+      @blur="$emit('blur', $event); console.log('Blur event emitted');" 
     />
   </div>
 </template>
 
 <script setup lang="ts">
 defineProps({
-    modelValue: {
+  modelValue: {
     type: [String, Number],
     default: "",
   },
@@ -51,13 +53,10 @@ defineProps({
   },
 });
 
-defineEmits(['update:modelValue']);
+defineEmits(["update:modelValue", "change", "blur"]);
 </script>
+
 <style scoped>
-#name,
-input::placeholder{
-    color: #505253!important;
-}
 input:focus {
   outline: none;
   box-shadow: none;

@@ -513,8 +513,9 @@ li {
   font-size: 14px;
 }
 .demo-drawer {
-  border: 2px solid red; /* Highlight the drawer for visibility */
-  z-index: 9999 !important; /* Bring it to the front */
-  display: block !important; /* Ensure it's not accidentally hidden */
+  border: 2px solid red; 
+  z-index: 9999 !important; 
+  display: block !important;
 }
+
 </style>

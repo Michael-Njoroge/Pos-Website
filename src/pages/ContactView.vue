@@ -18,7 +18,7 @@
         <div class="col-12 mt-5">
           <div class="contact-inner-wrapper d-flex justify-content-between">
             <div class="">
-              <h3 class="contact-title mb-4">Contact</h3>
+              <h3 class="contact-title mb-4">Contact Us</h3>
               <el-form
                 ref="ruleFormRef"
                 :model="formData"
@@ -27,24 +27,23 @@
                 class="d-flex flex-column gap-15"
               >
                 <el-form-item prop="name">
-                    <Input placeholder="John Doe" v-model="formData.name" class="w-100" id="name"/>
+                  <el-input placeholder="John Doe" v-model="formData.name" />
                 </el-form-item>
                 <el-form-item prop="email">
-                    <Input placeholder="john@example.com" v-model="formData.email" class="w-100" id="email"/>
+                  <el-input placeholder="john@example.com" v-model="formData.email" />
                 </el-form-item>
                 <el-form-item prop="phone">
-                  <el-input
-                    placeholder="+254716002152"
-                    v-model="formData.phone"
-                  />
+                  <el-input placeholder="+254 712345678" v-model="formData.phone" />
                 </el-form-item>
+                <el-form-item prop="comment">
                 <el-input
                   v-model="formData.comment"
-                  style="width: 240px"
-                  :autosize="{ minRows: 2, maxRows: 4 }"
+                  style="width: 100%;font-size: 15px;"
+                  :autosize="{ minRows: 2, maxRows: 10 }"
                   type="textarea"
-                  placeholder="Please input"
+                  placeholder="Your Message, Comments or Questions"
                 />
+                </el-form-item>
                 <el-button
                   class="button border-0 col-2 rounded py-4"
                   style="border-radius: 30px !important; font-weight: bolder"
@@ -90,7 +89,7 @@
 <script setup lang="ts">
 import { useHead } from "unhead";
 import BreadCrumb from "../components/BreadCrumb.vue";
-import type { ComponentSize, FormInstance, FormRules } from "element-plus";
+import { ElNotification, type ComponentSize, type FormInstance, type FormRules } from "element-plus";
 import { reactive, ref } from "vue";
 import {
   Comment,
@@ -98,7 +97,6 @@ import {
   InfoFilled,
   Phone,
 } from "@element-plus/icons-vue";
-import Input from "../components/Input.vue";
 useHead({ title: "Tech Mart | Contact Us" });
 
 interface RuleForm {
@@ -130,6 +128,13 @@ const rules = reactive<FormRules>({
       trigger: ["blur", "change"],
     },
   ],
+  name: [], 
+  phone: [], 
+  comment: [{
+    required: true,
+    message: "Comment is required",
+    trigger: ["blur", "change"],
+  }],
 });
 
 const submitForm = async (formEl: FormInstance | undefined) => {
@@ -137,6 +142,12 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
       console.log("submitted", formData);
+      ElNotification({
+        title: "Success",
+        message: "Message sent successfully",
+        type: "success",
+      });
+      formEl.resetFields();
     } else {
       console.log("error submit!", fields);
     }
@@ -144,5 +155,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 };
 </script>
 <style scoped>
-
+.el-input__wrapper{
+  border-radius: 30px !important;
+}
 </style>

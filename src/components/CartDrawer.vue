@@ -81,8 +81,8 @@
         </div>
       </div>
       <div class="d-flex gap-2 justify-content-center">
-        <router-link to="/cart" class="button px-4 py-2">View Cart</router-link>
-        <router-link to="/checkout" class="signup button px-4 py-2"
+        <router-link to="/cart" class="button px-4 py-2" @click="handleNavigation">View Cart</router-link>
+        <router-link to="/checkout" @click="handleNavigation" class="signup button px-4 py-2"
           >Checkout</router-link
         >
       </div>
@@ -107,6 +107,11 @@ const props = defineProps({
 });
 
 const cartData = ref([...props.data]);
+const emit = defineEmits(["update:modelValue"]);
+
+const handleNavigation = () => {
+  emit("update:modelValue", false);
+};
 
 const truncateText = (text: string, maxLength: number) => {
   if (text.length > maxLength) {

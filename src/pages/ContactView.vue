@@ -91,6 +91,7 @@ import { useHead } from "unhead";
 import BreadCrumb from "../components/BreadCrumb.vue";
 import { ElNotification, type ComponentSize, type FormInstance, type FormRules } from "element-plus";
 import { reactive, ref } from "vue";
+import "../contact.css"
 import {
   Comment,
   HomeFilled,

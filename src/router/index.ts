@@ -10,6 +10,7 @@ const routes = [
   { path: '/wishlist', component: () => import('../pages/WishlistView.vue') },
   { path: '/compare-products', component: () => import('../pages/CompareView.vue') },
   { path: '/contact', component: () => import('../pages/ContactView.vue') },
+  { path: '/cart', component: () => import('../pages/CartView.vue') },
 ];
 
 // Create the router instance

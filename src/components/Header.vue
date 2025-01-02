@@ -116,7 +116,7 @@
           <!-- User Account -->
           <div>
             <router-link
-              v-if="authState"
+              v-if="authState && authState.isAuthenticated"
               to="#"
               class="d-flex align-items-center gap-2 text-white"
               style="font-size: 13px"
@@ -140,7 +140,7 @@
 
             <!-- Dropdown Menu -->
             <div
-              v-if="isDropdownVisible === 'userDropdown' && authState"
+              v-if="isDropdownVisible === 'userDropdown' && authState.isAuthenticated"
               class="dropdown-menu animate slideIn mt-3"
               @click.stop
             >
@@ -157,7 +157,7 @@
             </div>
 
             <div
-              v-if="isDropdownVisible === 'userDropdown' && !authState"
+              v-if="isDropdownVisible === 'userDropdown' && !authState.isAuthenticated"
               class="dropdown-menu animate slideIn mt-3"
             >
               <router-link to="/login" class="dropdown-item"
@@ -340,7 +340,7 @@ const activeCategory = ref();
 
 const dummyAuthState = {
   firstname: "Michael",
-  isAuthenticated: true,
+  isAuthenticated: false,
 };
 
 const isDropdownVisible = ref<string | null>(null);

@@ -140,7 +140,10 @@
 
             <!-- Dropdown Menu -->
             <div
-              v-if="isDropdownVisible === 'userDropdown' && authState.isAuthenticated"
+              v-if="
+                isDropdownVisible === 'userDropdown' &&
+                authState.isAuthenticated
+              "
               class="dropdown-menu animate slideIn mt-3"
               @click.stop
             >
@@ -157,7 +160,10 @@
             </div>
 
             <div
-              v-if="isDropdownVisible === 'userDropdown' && !authState.isAuthenticated"
+              v-if="
+                isDropdownVisible === 'userDropdown' &&
+                !authState.isAuthenticated
+              "
               class="dropdown-menu animate slideIn mt-3"
             >
               <router-link to="/login" class="dropdown-item"
@@ -177,9 +183,7 @@
           >
             <img :src="cartIcon" alt="Cart" />
             <div>
-              <span class="badge bg-white text-dark">{{
-                cartProducts?.length || 0
-              }}</span>
+              <span class="badge bg-white text-dark">{{ total }}</span>
               <p class="mb-0" style="font-size: 13px">
                 {{ calculatedCart }}
               </p>
@@ -305,7 +309,7 @@
                 <router-link to="/product">Our Store</router-link>
                 <router-link to="/blogs">Blogs</router-link>
                 <router-link to="/contact">Contact</router-link>
-                <router-link v-if="authState" to="/my-orders"
+                <router-link v-if="authState.isAuthenticated" to="/my-orders"
                   >Orders</router-link
                 >
               </div>
@@ -315,7 +319,7 @@
       </div>
     </div>
   </header>
-  <CartDrawer v-model="showDrawer" :data="cartProducts"/>
+  <CartDrawer v-model="showDrawer" :data="cartProducts" />
 </template>
 
 <script setup lang="ts">
@@ -335,6 +339,9 @@ import CartDrawer from "./CartDrawer.vue";
 
 const router = useRouter();
 const searchtTerm = ref();
+const total = computed(() => {
+  return cartProducts.reduce((total, item) => total + item.quantity, 0);
+});
 
 const activeCategory = ref();
 
@@ -513,9 +520,8 @@ li {
   font-size: 14px;
 }
 .demo-drawer {
-  border: 2px solid red; 
-  z-index: 9999 !important; 
+  border: 2px solid red;
+  z-index: 9999 !important;
   display: block !important;
 }
-
 </style>

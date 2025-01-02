@@ -776,7 +776,7 @@ export const cartProducts = [
     title: "Honor T1 7.0 1 GB RAM 8 GB ROM 7 inch with Wi-Fi+3G Tablet",
     price: 100.00,
     quantity: 1,
-    color: [{ C1: "#03330" }, { C2: "#BB7N0" }, { C1: "#PL3IO" }],
+    color: [{ C1: "#033300" }, { C2: "#BB7000" }, { C3: "#F1C40F" }],
     size: [{ S: "S" }, { L: "L" }, { M: "M" }],
     image: single,
   },
@@ -785,7 +785,7 @@ export const cartProducts = [
     title: "Apple iPad Pro 2022 12.9-inch, WiFi + Cellular",
     price: 170.00,
     quantity: 2,
-    color: [{ C1: "#03330" }, { C2: "#BB7N0" }, { C1: "#PL3IO" }],
+    color: [{ C1: "#1F618D" }, { C2: "#D35400" }, { C3: "#F39C12" }],
     size: [{ S: "S" }, { L: "L" }, { M: "M" }],
     image: f10,
   },
@@ -794,8 +794,9 @@ export const cartProducts = [
     title: "Samsung Galaxy M32 6GB RAM 128GB ROM 5000 mAh with Wi-Fi+3G Tablet",
     price: 120.00,
     quantity: 2,
-    color: [{ C1: "#03330" }, { C2: "#BB7N0" }, { C1: "#PL3IO" }],
+    color: [{ C1: "#2980B9" }, { C2: "#27AE60" }, { C3: "#8E44AD" }],
     size: [{ S: "S" }, { L: "L" }, { M: "M" }],
     image: f60,
-  },
-]
+  }
+];
+

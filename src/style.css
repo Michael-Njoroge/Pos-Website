@@ -53,11 +53,7 @@ a {
   background-color: var(--color-f5f5f7);
   resize: none;
 }
-.el-input__inner{
-  background-color: var(--color-f5f5f7);
-  padding: 21px 15px;
-}
-.contact-inner-wrapper form .form-control,.el-input__inner{
+.el-input-number{
   border: 1px solid #ced4da!important;
 }
 .contact-inner-wrapper form .form-control::placeholder{
@@ -861,6 +857,7 @@ footer .input-group-text {
   box-shadow: none !important;
   border: 1px solid #ced4da!important;
 }
+
 
 .auth-card a {
   font-size: 14px;

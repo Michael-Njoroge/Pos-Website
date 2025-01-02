@@ -769,3 +769,33 @@ export const compareItems = [
     ],
   },
 ]
+
+export const cartProducts = [
+  {
+    id: "1",
+    title: "Honor T1 7.0 1 GB RAM 8 GB ROM 7 inch with Wi-Fi+3G Tablet",
+    price: 100.00,
+    quantity: 1,
+    color: [{ C1: "#03330" }, { C2: "#BB7N0" }, { C1: "#PL3IO" }],
+    size: [{ S: "S" }, { L: "L" }, { M: "M" }],
+    image: single,
+  },
+  {
+    id: "2",
+    title: "Honor T1 7.0 1 GB RAM 8 GB ROM 7 inch with Wi-Fi+3G Tablet",
+    price: 100.00,
+    quantity: 2,
+    color: [{ C1: "#03330" }, { C2: "#BB7N0" }, { C1: "#PL3IO" }],
+    size: [{ S: "S" }, { L: "L" }, { M: "M" }],
+    image: single,
+  },
+  {
+    id: "3",
+    title: "Honor T1 7.0 1 GB RAM 8 GB ROM 7 inch with Wi-Fi+3G Tablet",
+    price: 100.00,
+    quantity: 2,
+    color: [{ C1: "#03330" }, { C2: "#BB7N0" }, { C1: "#PL3IO" }],
+    size: [{ S: "S" }, { L: "L" }, { M: "M" }],
+    image: single,
+  },
+]

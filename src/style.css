@@ -46,6 +46,9 @@ a {
 .gap-30 {
   gap: 30px;
 }
+.el-drawer__header{
+  margin-bottom: 0!important;
+}
 
 .button {
   background-color: var(--color-232f3e);

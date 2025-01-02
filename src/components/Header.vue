@@ -170,20 +170,21 @@
             </div>
           </div>
           <!-- Cart -->
-          <router-link
-            to="/cart"
+          <div
             class="d-flex align-items-center gap-2 text-white"
+            style="cursor: pointer"
+            @click="openDrawer"
           >
             <img :src="cartIcon" alt="Cart" />
             <div>
               <span class="badge bg-white text-dark">{{
-                cartState?.products?.length || 0
+                cartProducts?.length || 0
               }}</span>
               <p class="mb-0" style="font-size: 13px">
-                ${{ cartState?.cartTotal || 0 }}
+                {{ calculatedCart }}
               </p>
             </div>
-          </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -232,10 +233,7 @@
 
                   <!-- Submenu -->
                   <ul
-                    v-if="
-                      activeCategory === index &&
-                      [1, 2, 3].includes(index)
-                    "
+                    v-if="activeCategory === index && [1, 2, 3].includes(index)"
                     class="submenu"
                     style="
                       position: absolute;
@@ -317,10 +315,11 @@
       </div>
     </div>
   </header>
+  <CartDrawer v-model="showDrawer" :data="cartProducts"/>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 
 // Icons
@@ -329,20 +328,13 @@ import wishlistIcon from "../images/wishlist.svg";
 import userIcon from "../images/user.svg";
 import cartIcon from "../images/cart.svg";
 import menuIcon from "../images/menu.svg";
-import { dummyProducts, categoriesMenus } from "../utils/Data";
+import { dummyProducts, categoriesMenus, cartProducts } from "../utils/Data";
 import { ArrowLeftBold, ArrowRightBold } from "@element-plus/icons-vue";
+import CartDrawer from "./CartDrawer.vue";
 // import { Search } from "@element-plus/icons-vue";
 
 const router = useRouter();
 const searchtTerm = ref();
-
-const dummyCart = {
-  products: [
-    { id: 1, name: "Laptop" },
-    { id: 2, name: "Smartphone" },
-  ],
-  cartTotal: 1200,
-};
 
 const activeCategory = ref();
 
@@ -352,6 +344,10 @@ const dummyAuthState = {
 };
 
 const isDropdownVisible = ref<string | null>(null);
+const showDrawer = ref(false);
+const openDrawer = () => {
+  showDrawer.value = true;
+};
 
 // Toggling dropdown visibility
 const toggleDropdown = (dropdownName: string) => {
@@ -365,12 +361,9 @@ const productOptions = ref([] as any);
 // const language = ref("en");
 // const currency = ref("USD $");
 
-// Initialize cart and products
-const cartState = ref(dummyCart);
 const authState = ref(dummyAuthState as any);
 
 onMounted(() => {
-  console.log("categoriesMenus", categoriesMenus);
   // Populate product options with dummy data
   productOptions.value = dummyProducts.map((product) => ({
     id: product.id,
@@ -386,6 +379,12 @@ const handleLogout = () => {
   authState.value = null; // Clear auth state
   router.push("/");
 };
+
+const calculatedCart = computed(() => {
+  return cartProducts.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+});
 
 // Handle language and currency changes
 // const handleLanguageChange = (selectedLanguage: string) => {
@@ -505,12 +504,17 @@ li {
   list-style: none;
   border-bottom: none;
 }
-.submenu-heading{
+.submenu-heading {
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 20px;
 }
-.submenu-list{
-  font-size:14px;
+.submenu-list {
+  font-size: 14px;
+}
+.demo-drawer {
+  border: 2px solid red; /* Highlight the drawer for visibility */
+  z-index: 9999 !important; /* Bring it to the front */
+  display: block !important; /* Ensure it's not accidentally hidden */
 }
 </style>

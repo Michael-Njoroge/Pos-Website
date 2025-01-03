@@ -11,6 +11,7 @@ const routes = [
   { path: '/compare-products', component: () => import('../pages/CompareView.vue') },
   { path: '/contact', component: () => import('../pages/ContactView.vue') },
   { path: '/cart', component: () => import('../pages/CartView.vue') },
+  { path: '/checkout', component: () => import('../pages/CheckoutView.vue') },
 ];
 
 // Create the router instance

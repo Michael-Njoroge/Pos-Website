@@ -799,4 +799,26 @@ export const cartProducts = [
     image: f60,
   }
 ];
+export const addressData = [
+  {
+    first_name: "John",
+    last_name: "Doe",
+    county: "Kiambu",
+    subcounty: "Gatundu North",
+    area: "Gatundu",
+    address: "123 Main Street",
+    phone: "0700000000",
+    email: "V3V4u@example.com",
+  },
+  {
+    first_name: "Jane",
+    last_name: "Doe",
+    county: "Kisumu",
+    subcounty: "Bungoma",
+    area: "Bungoma",
+    address: "123 Main Street",
+    phone: "0700000000",
+    email: "yr8Ei@example.com",
+  }
+];
 

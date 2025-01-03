@@ -97,7 +97,7 @@
 </template>
 <script lang="ts" setup>
 import { Delete } from "@element-plus/icons-vue";
-import { ref, type PropType } from "vue";
+import { ref, watch, type PropType } from "vue";
 
 const props = defineProps({
   data: {
@@ -108,6 +108,15 @@ const props = defineProps({
 
 const cartData = ref([...props.data]);
 const emit = defineEmits(["update:modelValue"]);
+const drawer = ref(false);
+
+watch(
+  () => drawer.value,
+  (newVal) => {
+    emit("update:modelValue", newVal);
+  }
+);
+
 
 const handleNavigation = () => {
   emit("update:modelValue", false);
@@ -120,7 +129,6 @@ const truncateText = (text: string, maxLength: number) => {
   return text;
 };
 
-const drawer = ref(false);
 
 const removeItem = (id: number) => {
   cartData.value = cartData.value.filter((item: any) => item.id !== id);

@@ -1,5 +1,5 @@
 <template>
-  <BreadCrumb title="Cart" />
+<BreadCrumb title="Cart" />
   <section class="cart-wrapper home-wrapper-2 py-5">
     <div class="container-xxl" style="max-width: 90%">
       <div class="row">
@@ -10,7 +10,9 @@
             <h4 class="cart-col-3">Quantity</h4>
             <h4 class="cart-col-4">Total</h4>
           </div>
-          <div v-for="(item, index) in cartItems" :key="index"
+          <div
+            v-for="(item, index) in cartItems"
+            :key="index"
             class="cart-data mb-2 py-3 d-flex align-items-center justify-content-between"
           >
             <div class="cart-col-1 gap-15 d-flex align-items-center">
@@ -22,7 +24,10 @@
                 <div class="d-flex align-items-center gap-4">
                   <p class="text-muted">Color:</p>
                   <ul class="colors p-0">
-                    <li class="color-1" :style="{ backgroundColor: item.color[0].C1 }"></li>
+                    <li
+                      class="color-1"
+                      :style="{ backgroundColor: item.color[0].C1 }"
+                    ></li>
                   </ul>
                 </div>
               </div>
@@ -39,31 +44,54 @@
                   @click="updateQuantity(index, -1)"
                   :disabled="item.quantity <= minQuantity"
                   aria-label="Decrease"
-                  :style="item.quantity <= minQuantity ? 'cursor: not-allowed' : 'cursor: pointer'"
+                  :style="
+                    item.quantity <= minQuantity
+                      ? 'cursor: not-allowed'
+                      : 'cursor: pointer'
+                  "
                 >
                   &minus;
                 </button>
-                <input type="number" v-model="item.quantity" @input="handleInputChange(index, $event)" class="input-box" />
+                <input
+                  type="number"
+                  v-model="item.quantity"
+                  @input="handleInputChange(index, $event)"
+                  class="input-box"
+                />
                 <button
                   class="plus"
                   @click="updateQuantity(index, 1)"
                   :disabled="item.quantity >= maxQuantity"
                   aria-label="Increase"
-                  :style="item.quantity >= maxQuantity ? 'cursor: not-allowed' : 'cursor: pointer'"
+                  :style="
+                    item.quantity >= maxQuantity
+                      ? 'cursor: not-allowed'
+                      : 'cursor: pointer'
+                  "
                 >
                   &plus;
                 </button>
               </div>
             </div>
             <div className="cart-col-3 d-flex align-items-center gap-4">
-              <h5 class="price me-5">$ {{ (item.price * item.quantity).toFixed(2) }}</h5>
-              <div>
-                <el-icon
-                  class="fs-6 text-danger"
-                  style="cursor: pointer"
-                  @click="removeItem(index)"
-                  ><Delete
-                /></el-icon>
+              <h5 class="price me-5">
+                $ {{ (item.price * item.quantity).toFixed(2) }}
+              </h5>
+              <div
+                class="button"
+                @click="removeItem(index)"
+                style="
+                  border-radius: 50%;
+                  width: 40px;
+                  height: 40px;
+                  padding: 0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                "
+              >
+                <el-icon class="fs-6"><Delete /></el-icon>
               </div>
             </div>
           </div>
@@ -106,7 +134,10 @@ const handleInputChange = (index: number, event: Event) => {
   if (!isNaN(value) && value >= 1 && value <= 10) {
     cartItems.value[index].quantity = value;
   } else {
-    cartItems.value[index].quantity = Math.max(1, Math.min(10, cartItems.value[index].quantity));
+    cartItems.value[index].quantity = Math.max(
+      1,
+      Math.min(10, cartItems.value[index].quantity)
+    );
   }
 };
 
@@ -114,7 +145,7 @@ const subTotal = computed(() => {
   return cartItems.value.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
-})
+});
 const removeItem = (id: number) => {
   console.log(id);
   cartItems.value.splice(id, 1);
@@ -134,7 +165,7 @@ const removeItem = (id: number) => {
 }
 
 .quantity button {
-  background-color:#ced4da;
+  background-color: #ced4da;
   color: #fff;
   border: none;
   font-size: 20px;
@@ -158,6 +189,6 @@ const removeItem = (id: number) => {
 }
 
 .input-box[type="number"] {
-  -moz-appearance: textfield;  
-  }
+  -moz-appearance: textfield;
+}
 </style>

@@ -652,7 +652,14 @@ footer .input-group-text {
   border-radius: 50%;
   cursor: pointer;
 }
-
+.el-step__title{
+  font-size: 12px!important;
+}
+.el-step__icon{
+  font-size: 10px !important;
+  width: 18px !important;
+  height: 18px !important;
+}
 .random-products h5 {
   font-size: 14px;
   margin-bottom: 8px;

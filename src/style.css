@@ -49,6 +49,9 @@ a {
 .el-drawer__header{
   margin-bottom: 0!important;
 }
+.el-dialog__header{
+  padding-bottom: 0px !important;
+}
 .el-textarea__inner {
   background-color: var(--color-f5f5f7);
   resize: none;

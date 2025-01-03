@@ -337,11 +337,12 @@
                 Ksh 52,600
               </h5>
             </div>
-            <button class="bg-danger text-white rounded-1 underline-on-hover border-0 w-100 p-2">Place Order</button>
+            <button @click="showModal" class="bg-danger text-white rounded-1 underline-on-hover border-0 w-100 p-2">Place Order</button>
           </div>
         </div>
       </div>
     </div>
+    <PaymentModal v-model="visible"/>
   </section>
 </template>
 
@@ -357,13 +358,19 @@ import {
   SuccessFilled,
   TakeawayBox,
 } from "@element-plus/icons-vue";
+import PaymentModal from "../components/PaymentModal.vue";
 
 useHead({ title: "Tech Mart | Checkout" });
 const payement = ref("mpesa");
 const active = ref(2);
+const visible = ref(false);
 const discountApplied = ref(false);
 const applyDiscount = () => {
   discountApplied.value = !discountApplied.value;
+};
+
+const showModal = () => {
+  visible.value = !visible.value;
 };
 </script>
 
